@@ -2476,10 +2476,10 @@ body.nav-open { overflow: hidden; }
 
 @media (max-width: 760px) {
   .container { width: min(100% - 28px, var(--container)); }
-  .btn { white-space: normal; text-align: center; }
+  .btn { white-space: normal; text-align: center; word-break: break-word; }
   .section__head { text-align: center; margin-inline: auto; }
   .filters { justify-content: center; }
-  .location__btns .btn, .feature .btn { width: 100%; }
+  .location__btns .btn, .feature .btn, .section__foot .btn { width: 100%; }
   .footer__contact { align-items: stretch; }
 }
 
@@ -3839,5 +3839,677 @@ h3 {
   .cs-trigger__price,
   .cs-moto-price {
     font-size: .86rem;
+  }
+}
+
+/* ==========================================================
+   FORMULARIO DE CONTACTO — RESPONSIVE FIX
+   ========================================================== */
+
+#contacto,
+#contacto * {
+  box-sizing: border-box;
+}
+
+#contacto {
+  overflow: hidden;
+}
+
+#contacto .container {
+  width: min(100% - 32px, 1180px);
+  margin-inline: auto;
+}
+
+/* CONTENEDOR GENERAL */
+.lead-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 80px);
+
+  width: 100%;
+  min-width: 0;
+}
+
+/* COLUMNA DE TEXTO */
+.contact-copy {
+  min-width: 0;
+}
+
+.contact-copy__title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  margin: 12px 0 18px;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.contact-copy__title span {
+  display: block;
+  max-width: 100%;
+}
+
+.contact-copy__title-accent {
+  color: var(--color-primary, #f2e600);
+}
+
+.contact-copy__lead {
+  max-width: 520px;
+  margin: 0 0 24px;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+}
+
+.contact-copy__benefits {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-copy__benefits li {
+  position: relative;
+  padding-left: 30px;
+  line-height: 1.45;
+}
+
+.contact-copy__benefits li::before {
+  content: "✓";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: grid;
+  place-items: center;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+  background: var(--color-primary, #f2e600);
+  color: #111;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+/* FORMULARIO */
+.lead-form {
+  width: 100%;
+  min-width: 0;
+
+  padding: clamp(22px, 3vw, 38px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.018)
+    ),
+    #101212;
+
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.lead-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.lead-field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  margin-bottom: 16px;
+}
+
+.lead-field span {
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d7dada;
+}
+
+.lead-field input,
+.lead-field select,
+.lead-field textarea {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  outline: none;
+
+  background: #080a0a;
+  color: #fff;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.lead-field input,
+.lead-field select {
+  min-height: 54px;
+  padding: 0 15px;
+}
+
+.lead-field textarea {
+  min-height: 92px;
+  padding: 14px 15px;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.lead-field select {
+  appearance: auto;
+}
+
+.lead-field input:focus,
+.lead-field select:focus,
+.lead-field textarea:focus {
+  border-color: var(--color-primary, #f2e600);
+  background: #0c0f0f;
+  box-shadow: 0 0 0 4px rgba(242, 230, 0, 0.1);
+}
+
+.lead-field input::placeholder,
+.lead-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.42);
+  font-weight: 500;
+}
+
+/* BOTÓN */
+.lead-form__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 58px;
+  padding: 13px 20px;
+
+  text-align: center;
+  white-space: normal;
+  line-height: 1.25;
+}
+
+.lead-form__btn .ico-wa {
+  width: 23px;
+  height: 23px;
+  min-width: 23px;
+  flex: 0 0 23px;
+}
+
+.lead-form__foot {
+  margin: 12px 0 0;
+  text-align: center;
+  color: var(--color-muted, #929899);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+/* MENSAJE DE ÉXITO */
+.lead-form__success {
+  display: none;
+  width: 100%;
+  min-width: 0;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(37, 211, 102, 0.08);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  text-align: center;
+}
+
+.lead-form__success strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.lead-form__success p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  #contacto .container {
+    width: min(100% - 28px, 720px);
+  }
+
+  .lead-wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+  }
+
+  .contact-copy {
+    text-align: center;
+  }
+
+  .contact-copy__lead {
+    margin-inline: auto;
+  }
+
+  .contact-copy__benefits {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    text-align: left;
+  }
+
+  .contact-copy__title {
+    font-size: clamp(2.6rem, 9vw, 4.4rem);
+  }
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+  #contacto {
+    padding-block: 54px;
+  }
+
+  #contacto .container {
+    width: min(100% - 22px, 520px);
+  }
+
+  .lead-wrap {
+    gap: 26px;
+  }
+
+  .contact-copy__eyebrow {
+    justify-content: center;
+  }
+
+  .contact-copy__title {
+    gap: 5px;
+    margin: 10px 0 15px;
+    font-size: clamp(2.15rem, 11vw, 3.25rem);
+    line-height: 0.98;
+  }
+
+  .contact-copy__lead {
+    margin-bottom: 20px;
+    font-size: 0.98rem;
+  }
+
+  .contact-copy__benefits {
+    gap: 11px;
+    font-size: 0.9rem;
+  }
+
+  .lead-form {
+    padding: 20px 15px;
+    border-radius: 20px;
+  }
+
+  .lead-form__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .lead-field {
+    margin-bottom: 14px;
+  }
+
+  .lead-field input,
+  .lead-field select {
+    min-height: 52px;
+  }
+
+  .lead-form__btn {
+    min-height: 56px;
+    padding-inline: 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* CELULARES MUY CHICOS */
+@media (max-width: 380px) {
+  #contacto .container {
+    width: calc(100% - 16px);
+  }
+
+  .contact-copy__title {
+    font-size: 2rem;
+  }
+
+  .lead-form {
+    padding: 17px 12px;
+    border-radius: 17px;
+  }
+
+  .lead-form__btn {
+    gap: 8px;
+    padding-inline: 10px;
+    font-size: 0.82rem;
+  }
+
+  .lead-form__btn .ico-wa {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    flex-basis: 20px;
+  }
+
+  .lead-form__foot {
+    font-size: 0.72rem;
+  }
+}
+
+/* FIX BOTÓN FORMULARIO EN MOBILE */
+#contacto .lead-form__btn {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0 !important;
+  height: auto;
+  min-height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 14px 16px;
+  box-sizing: border-box;
+
+  white-space: normal !important;
+  overflow: hidden;
+  text-align: center;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+
+  font-size: clamp(.78rem, 3.5vw, .95rem);
+  letter-spacing: .03em;
+}
+
+#contacto .lead-form__btn .ico-wa {
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  #contacto .lead-form__btn {
+    padding: 13px 10px;
+    font-size: .78rem;
+    letter-spacing: .015em;
+  }
+}
+
+@media (max-width: 370px) {
+  #contacto .lead-form__btn {
+    font-size: .72rem;
+  }
+}
+
+/* =====================================================
+   RESULTADO DEL COTIZADOR — RESPONSIVE
+   ===================================================== */
+
+.cs-step--result,
+.cs-step--result * {
+  box-sizing: border-box;
+}
+
+.cs-step--result {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.cs-step--result .cs-step__body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.cs-result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 18px;
+}
+
+.cs-result-grid > div {
+  min-width: 0;
+  padding: 16px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: #070b0b;
+  overflow: hidden;
+}
+
+.cs-result__label {
+  display: block;
+  min-height: 32px;
+  margin-bottom: 7px;
+
+  color: #90989a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cs-result__value,
+.cs-result__price,
+.cs-result__down {
+  display: block;
+  max-width: 100%;
+
+  font-size: clamp(1.1rem, 2.2vw, 1.75rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.cs-result__value {
+  color: var(--color-primary, #f2e600);
+}
+
+.cs-result__price {
+  color: #fff;
+}
+
+.cs-result__down {
+  color: var(--color-secondary, #1bb3f2);
+}
+
+/* Botón de WhatsApp */
+.cs-wa-btn {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0 !important;
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 13px 18px;
+  text-align: center;
+  white-space: normal !important;
+  line-height: 1.2;
+}
+
+.cs-wa-btn .ico-wa {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  flex-shrink: 0;
+}
+
+#csDisclaimer {
+  display: block;
+  margin-top: 10px !important;
+  color: #90989a;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+/* TABLET */
+@media (max-width: 760px) {
+  .cs-step--result {
+    align-items: flex-start;
+  }
+
+  .cs-result-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "cuota cuota"
+      "precio entrega";
+    gap: 10px;
+  }
+
+  .cs-result-grid > div:nth-child(1) {
+    grid-area: cuota;
+  }
+
+  .cs-result-grid > div:nth-child(2) {
+    grid-area: precio;
+  }
+
+  .cs-result-grid > div:nth-child(3) {
+    grid-area: entrega;
+  }
+
+  .cs-result-grid > div:nth-child(1) {
+    padding: 18px;
+    background:
+      linear-gradient(
+        135deg,
+        rgba(242, 230, 0, 0.08),
+        rgba(242, 230, 0, 0.01)
+      ),
+      #070b0b;
+    border-color: rgba(242, 230, 0, 0.2);
+  }
+
+  .cs-result-grid > div:nth-child(1) .cs-result__label {
+    min-height: auto;
+  }
+
+  .cs-result-grid > div:nth-child(1) .cs-result__value {
+    font-size: clamp(1.7rem, 8vw, 2.35rem);
+  }
+}
+
+/* CELULAR */
+@media (max-width: 520px) {
+  .cs-step--result {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+    padding: 18px 12px;
+  }
+
+  .cs-step--result .cs-step__num {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    margin: 0;
+  }
+
+  .cs-result-grid {
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .cs-result-grid > div {
+    min-height: 92px;
+    padding: 13px 10px;
+    border-radius: 13px;
+  }
+
+  .cs-result-grid > div:nth-child(1) {
+    min-height: auto;
+    padding: 15px 14px;
+  }
+
+  .cs-result__label {
+    min-height: 30px;
+    margin-bottom: 6px;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+  }
+
+  .cs-result__price,
+  .cs-result__down {
+    font-size: clamp(0.92rem, 4.5vw, 1.15rem);
+  }
+
+  .cs-wa-btn {
+    min-height: 56px;
+    padding: 12px 10px;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+  }
+
+  #csDisclaimer {
+    font-size: 0.7rem !important;
+    line-height: 1.45 !important;
+  }
+}
+
+/* CELULARES MUY ANGOSTOS */
+@media (max-width: 360px) {
+  .cs-step--result {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 9px;
+    padding-inline: 9px;
+  }
+
+  .cs-step--result .cs-step__num {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  .cs-result-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "cuota"
+      "precio"
+      "entrega";
+  }
+
+  .cs-result-grid > div {
+    min-height: auto;
+  }
+
+  .cs-result__label {
+    min-height: auto;
+  }
+
+  .cs-result__price,
+  .cs-result__down {
+    font-size: 1.1rem;
   }
 }
