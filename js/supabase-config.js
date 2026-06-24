@@ -1,0 +1,2 @@
+window.__SUPABASE_URL__ = 'https://ipfnecqpovwteytwptft.supabase.co';
+window.__SUPABASE_ANON_KEY__ = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlwZm5lY3Fwb3Z3dGV5dHdwdGZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4MDQ0MzEsImV4cCI6MjA5NzM4MDQzMX0.Koz_dymyMeIx0PzCxVsisa14dmaEqxASG2HBi2cHEio';
