@@ -1051,6 +1051,104 @@ function initFloatingWhatsApp() {
   });
 }
 
+/* ===================================================================
+   MOTION PRIMITIVES — efectos adaptados a vanilla
+   =================================================================== */
+
+/* ---- 1. Scroll Progress ---- */
+function initScrollProgress() {
+  var bar = document.getElementById("scrollProgress");
+  if (!bar) return;
+  var ticking = false;
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+        bar.style.width = pct + "%";
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* ---- 2. Text Reveal (char by char) ---- */
+function initTextReveal() {
+  var titles = document.querySelectorAll(".section__title, .hero__title");
+  if (!titles.length) return;
+
+  titles.forEach(function (el) {
+    el.classList.add("txt-reveal");
+    var text = el.textContent;
+    var html = "";
+    for (var i = 0; i < text.length; i++) {
+      var ch = text[i] === " " ? " " : text[i];
+      html += '<span class="char" style="transition-delay:' + (i * 0.025) + 's">' + ch + "</span>";
+    }
+    el.innerHTML = html;
+
+    if ("IntersectionObserver" in window) {
+      var once = false;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !once) {
+            once = true;
+            el.classList.add("is-visible");
+            io.unobserve(el);
+          }
+        });
+      }, { threshold: 0.3 });
+      io.observe(el);
+    } else {
+      el.classList.add("is-visible");
+    }
+  });
+}
+
+/* ---- 3. Border Trail ---- */
+function initBorderTrail() {
+  var cards = document.querySelectorAll(".moto-card, .step, .feature, .trust-card, .location");
+  cards.forEach(function (c) { c.classList.add("has-border-trail"); });
+}
+
+/* ---- 4. Spotlight (mouse follower glow) ---- */
+function initSpotlight() {
+  var hero = document.querySelector(".hero__bg");
+  if (!hero) return;
+  var overlay = document.createElement("div");
+  overlay.className = "spotlight-overlay";
+  hero.parentNode.insertBefore(overlay, hero.nextSibling);
+  hero.classList.add("has-spotlight");
+
+  var ticking = false;
+  hero.parentNode.addEventListener("mousemove", function (e) {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        var rect = hero.parentNode.getBoundingClientRect();
+        var x = ((e.clientX - rect.left) / rect.width) * 100;
+        var y = ((e.clientY - rect.top) / rect.height) * 100;
+        overlay.style.setProperty("--sx", x + "%");
+        overlay.style.setProperty("--sy", y + "%");
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
+
+/* ---- 5. Animated Mesh Background ---- */
+function initAnimatedBg() {
+  var targets = document.querySelectorAll(".hero, .cta-final, .section--alt");
+  targets.forEach(function (el) {
+    if (el.querySelector(".bg-mesh")) return;
+    var mesh = document.createElement("div");
+    mesh.className = "bg-mesh";
+    mesh.setAttribute("aria-hidden", "true");
+    el.insertBefore(mesh, el.firstChild);
+  });
+}
+
 /* ---- INIT ---- */
 document.addEventListener("DOMContentLoaded", async function () {
   await loadData();
@@ -1067,6 +1165,11 @@ document.addEventListener("DOMContentLoaded", async function () {
   initMarqueePause();
   initCounterBump();
   initFloatingWhatsApp();
+  initScrollProgress();
+  initTextReveal();
+  initBorderTrail();
+  initSpotlight();
+  initAnimatedBg();
   initGallery();
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
