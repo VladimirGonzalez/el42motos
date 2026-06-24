@@ -1697,16 +1697,10 @@ body.nav-open { overflow: hidden; }
   text-shadow: 0 0 14px rgba(34, 242, 58, 0.6);
 }
 
-.credit-link__tagline {
-  opacity: 0;
-  transform: translateX(-8px);
-  transition: all 0.8s cubic-bezier(0.78, 0, 0.22, 1);
-  transition-delay: 0s;
-}
-.credit-link:hover .credit-link__tagline {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: 0.15s;
+.credit-link__emoji {
+  font-size: .85rem;
+  line-height: 1;
+  margin-right: 4px;
 }
 
 /* ===================== WhatsApp interactivo flotante ===================== */
@@ -4511,5 +4505,418 @@ h3 {
   .cs-result__price,
   .cs-result__down {
     font-size: 1.1rem;
+  }
+}
+
+/* =====================================================
+   FIX FINAL — RESULTADO COTIZADOR MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+  .cs-step--result {
+    position: relative !important;
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    padding: 16px 14px 20px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* El número deja de ocupar una columna */
+  .cs-step--result .cs-step__num {
+    position: absolute !important;
+    top: 30px !important;
+    left: 28px !important;
+    z-index: 3;
+
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    margin: 0 !important;
+  }
+
+  /* El contenido aprovecha todo el ancho disponible */
+  .cs-step--result .cs-step__body {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cs-result-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-areas:
+      "cuota cuota"
+      "precio entrega" !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+
+    gap: 10px !important;
+    margin: 0 0 16px !important;
+  }
+
+  .cs-result-grid > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 14px 12px !important;
+
+    border-radius: 14px !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Cuota mensual */
+  .cs-result-grid > div:nth-child(1) {
+    grid-area: cuota !important;
+
+    min-height: 92px !important;
+    padding-left: 74px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  /* Precio */
+  .cs-result-grid > div:nth-child(2) {
+    grid-area: precio !important;
+  }
+
+  /* Entrega */
+  .cs-result-grid > div:nth-child(3) {
+    grid-area: entrega !important;
+  }
+
+  .cs-result__label {
+    display: block !important;
+
+    min-height: 30px !important;
+    margin: 0 0 6px !important;
+
+    font-size: 0.62rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.04em !important;
+
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .cs-result-grid > div:nth-child(1) .cs-result__label {
+    min-height: 0 !important;
+  }
+
+  /* Evita que los precios se oculten */
+  .cs-result__value,
+  .cs-result__price,
+  .cs-result__down {
+    display: block !important;
+
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: normal !important;
+
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.045em !important;
+    line-height: 1 !important;
+  }
+
+  .cs-result__value {
+    font-size: clamp(1.65rem, 8vw, 2.15rem) !important;
+  }
+
+  .cs-result__price,
+  .cs-result__down {
+    font-size: clamp(1rem, 4.7vw, 1.25rem) !important;
+  }
+
+  /* Botón */
+  .cs-wa-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 13px 12px !important;
+
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    box-sizing: border-box !important;
+  }
+
+  #csDisclaimer {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 10px 0 0 !important;
+  }
+}
+
+/* Celulares muy angostos */
+@media (max-width: 370px) {
+  .cs-step--result {
+    padding-inline: 10px !important;
+  }
+
+  .cs-step--result .cs-step__num {
+    left: 22px !important;
+  }
+
+  .cs-result-grid > div:nth-child(1) {
+    padding-left: 68px !important;
+  }
+
+  .cs-result__price,
+  .cs-result__down {
+    font-size: 0.98rem !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .cs-wa-btn {
+    font-size: 0.79rem !important;
+  }
+}
+
+/* =====================================================
+   USADOS — RESPONSIVE CORREGIDO
+   ===================================================== */
+
+#usados,
+#usados * {
+  box-sizing: border-box;
+}
+
+#usados {
+  overflow: hidden;
+}
+
+#usados .container {
+  width: min(100% - 32px, 1180px);
+  margin-inline: auto;
+}
+
+/* Grilla de tarjetas */
+#usados .two-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(18px, 3vw, 30px);
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Tarjetas */
+#usados .feature {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 100%;
+
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#usados .feature--accent {
+  border-color: rgba(242, 230, 0, 0.28);
+}
+
+/* Etiqueta superior */
+#usados .chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  max-width: 100%;
+  min-height: 38px;
+
+  padding: 8px 14px;
+  margin-bottom: 20px;
+
+  white-space: normal;
+  text-align: center;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+/* Título */
+#usados .feature__title {
+  max-width: 100%;
+  margin: 0 0 16px;
+
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 0.98;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-wrap: balance;
+}
+
+/* Descripción */
+#usados .feature__text {
+  max-width: 540px;
+  margin: 0 0 22px;
+
+  font-size: clamp(0.96rem, 1.3vw, 1.08rem);
+  line-height: 1.6;
+}
+
+/* Lista */
+#usados .ticklist {
+  display: grid;
+  gap: 12px;
+
+  margin: 0 0 28px;
+  padding: 0;
+}
+
+#usados .ticklist li {
+  min-width: 0;
+  line-height: 1.45;
+}
+
+/* Empuja acciones hacia abajo para igualar tarjetas */
+#usados .link-arrow,
+#usados .feature .btn {
+  margin-top: auto;
+}
+
+/* Botón de cotización */
+#usados .feature .btn {
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+
+  white-space: normal;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* TABLET */
+@media (max-width: 800px) {
+  #usados .two-cards {
+    gap: 16px;
+  }
+
+  #usados .feature {
+    padding: 24px 20px;
+  }
+
+  #usados .feature__title {
+    font-size: clamp(1.65rem, 4vw, 2.1rem);
+  }
+}
+
+/* CELULAR: una tarjeta debajo de la otra */
+@media (max-width: 640px) {
+  #usados {
+    padding-block: 52px;
+  }
+
+  #usados .container {
+    width: min(100% - 22px, 520px);
+  }
+
+  #usados .two-cards {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px;
+  }
+
+  #usados .feature {
+    min-height: auto;
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  #usados .chip {
+    min-height: 34px;
+    margin-bottom: 18px;
+    padding: 7px 12px;
+
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  #usados .feature__title {
+    margin-bottom: 14px;
+    font-size: clamp(1.8rem, 9vw, 2.45rem);
+    line-height: 0.98;
+  }
+
+  #usados .feature__text {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  #usados .ticklist {
+    margin-bottom: 26px;
+  }
+
+  #usados .link-arrow {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 4px;
+
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  #usados .feature .btn {
+    width: 100%;
+    min-height: 54px;
+    padding: 13px 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.88rem;
+  }
+}
+
+/* CELULARES MUY CHICOS */
+@media (max-width: 370px) {
+  #usados .container {
+    width: calc(100% - 16px);
+  }
+
+  #usados .feature {
+    padding: 21px 16px;
+  }
+
+  #usados .feature__title {
+    font-size: 1.75rem;
   }
 }
