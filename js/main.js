@@ -719,33 +719,70 @@ function initWhatsApp() {
   });
 }
 
-/* ---- HEADER ---- */
+/* ---- HEADER (glassmorphism) ---- */
 function initHeader() {
   var header = document.getElementById("header");
   var toggle = document.getElementById("navToggle");
-  var nav = document.getElementById("nav");
-  if (!header || !toggle || !nav) return;
+  var navMobile = document.getElementById("navMobile");
+  if (!header || !toggle || !navMobile) return;
 
-  function onScroll() { header.classList.toggle("is-scrolled", window.scrollY > 20); }
+  /* Scroll state */
+  var onScroll = function () { header.classList.toggle("is-scrolled", window.scrollY > 20); };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  toggle.addEventListener("click", function () {
-    var open = nav.classList.toggle("is-open");
-    toggle.classList.toggle("is-open", open);
-    document.body.classList.toggle("nav-open", open);
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  /* Toggle mobile menu */
+  var toggleMenu = function (open) {
+    var isOpen = open !== undefined ? open : !navMobile.classList.contains("is-open");
+    navMobile.classList.toggle("is-open", isOpen);
+    toggle.classList.toggle("is-open", isOpen);
+    document.body.classList.toggle("nav-open", isOpen);
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+  };
+  toggle.addEventListener("click", function () { toggleMenu(); });
+
+  /* Close on link click (mobile) */
+  navMobile.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () { toggleMenu(false); });
   });
 
-  nav.querySelectorAll("a").forEach(function (a) {
-    a.addEventListener("click", function () {
-      nav.classList.remove("is-open");
-      toggle.classList.remove("is-open");
-      document.body.classList.remove("nav-open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
+  /* Close on Escape */
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && navMobile.classList.contains("is-open")) toggleMenu(false);
   });
+
+  /* Close on resize to desktop */
+  var mq = window.matchMedia("(min-width: 1024px)");
+  mq.addEventListener("change", function () { if (mq.matches) toggleMenu(false); });
+
+  /* ---- Active section tracking ---- */
+  var sections = ["motos", "como-compras", "cotizador", "contacto", "usados", "ubicaciones"];
+  var navLinks = document.querySelectorAll(".nav-link, .nav-mobile__link");
+
+  var setActive = function (id) {
+    navLinks.forEach(function (l) {
+      var isActive = l.getAttribute("data-section") === id;
+      l.classList.toggle("is-active", isActive);
+    });
+  };
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(
+      function (entries) {
+        var best = null;
+        entries.forEach(function (e) {
+          if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e;
+        });
+        if (best) setActive(best.target.id);
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.25, 0.5] }
+    );
+    sections.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  }
 }
 
 /* ---- REVEAL (enhanced) ---- */
