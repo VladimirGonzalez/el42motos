@@ -3,31 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>El 42 Motos — Tu próxima moto está en El 42 | 0km, usadas y financiación</title>
-    <meta name="description" content="Agencia de motos en Arrecifes y Capitán Sarmiento. Motos 0km, usadas seleccionadas, financiación y toma de usados. Consultá hoy por WhatsApp y salí más cerca de tu moto." />
+    <title>
+      El 42 Motos — Tu próxima moto está en El 42 | 0km, usadas y financiación
+    </title>
+    <meta
+      name="description"
+      content="Agencia de motos en Arrecifes y Capitán Sarmiento. Motos 0km, usadas seleccionadas, financiación y toma de usados. Consultá hoy por WhatsApp y salí más cerca de tu moto."
+    />
     <meta name="theme-color" content="#111111" />
     <link rel="canonical" href="https://el42motos.com.ar/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="El 42 Motos" />
-    <meta property="og:title" content="El 42 Motos — Tu próxima moto está en El 42" />
-    <meta property="og:description" content="Motos 0km, usadas seleccionadas, financiación y toma de usados. Consultá hoy por WhatsApp." />
+    <meta
+      property="og:title"
+      content="El 42 Motos — Tu próxima moto está en El 42"
+    />
+    <meta
+      property="og:description"
+      content="Motos 0km, usadas seleccionadas, financiación y toma de usados. Consultá hoy por WhatsApp."
+    />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:url" content="https://el42motos.com.ar/" />
-    <meta property="og:image" content="https://el42motos.com.ar/img/og-image.jpg" />
+    <meta
+      property="og:image"
+      content="https://el42motos.com.ar/img/og-image.jpg"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="El 42 Motos — motos 0km, usadas y financiación" />
+    <meta
+      property="og:image:alt"
+      content="El 42 Motos — motos 0km, usadas y financiación"
+    />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="El 42 Motos — Tu próxima moto está en El 42" />
-    <meta name="twitter:description" content="Motos 0km, usadas seleccionadas, financiación y toma de usados." />
-    <meta name="twitter:image" content="https://el42motos.com.ar/img/og-image.jpg" />
+    <meta
+      name="twitter:title"
+      content="El 42 Motos — Tu próxima moto está en El 42"
+    />
+    <meta
+      name="twitter:description"
+      content="Motos 0km, usadas seleccionadas, financiación y toma de usados."
+    />
+    <meta
+      name="twitter:image"
+      content="https://el42motos.com.ar/img/og-image.jpg"
+    />
 
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="icon" type="image/png" href="img/favicon-180.png" />
     <link rel="apple-touch-icon" href="img/favicon-180.png" />
@@ -38,11 +67,17 @@
       /* ====================================================
          RESET & BASE
       ==================================================== */
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
       :root {
-        --yellow: #F2E600;
-        --yellow-dark: #D4CA00;
+        --yellow: #f2e600;
+        --yellow-dark: #d4ca00;
         --black: #111111;
         --dark: #1a1a1a;
         --dark2: #222222;
@@ -53,15 +88,15 @@
         --white: #ffffff;
         --blue-accent: #00aaff;
 
-        --font-display: 'Bebas Neue', sans-serif;
-        --font-body: 'Montserrat', sans-serif;
+        --font-display: "Bebas Neue", sans-serif;
+        --font-body: "Montserrat", sans-serif;
 
         --radius: 12px;
         --radius-sm: 8px;
         --radius-lg: 20px;
 
-        --shadow: 0 4px 24px rgba(0,0,0,.35);
-        --shadow-lg: 0 12px 48px rgba(0,0,0,.5);
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+        --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.5);
 
         --container: 1200px;
         --gap: clamp(16px, 3vw, 32px);
@@ -70,7 +105,9 @@
         --header-h: 64px;
       }
 
-      html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
       body {
         font-family: var(--font-body);
@@ -81,21 +118,32 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      img { display: block; max-width: 100%; height: auto; }
-      a { text-decoration: none; color: inherit; }
-      ul, ol { list-style: none; }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul,
+      ol {
+        list-style: none;
+      }
 
       /* ====================================================
          SCROLL PROGRESS
       ==================================================== */
       .scroll-progress {
         position: fixed;
-        top: 0; left: 0;
+        top: 0;
+        left: 0;
         height: 3px;
         width: 0%;
         background: var(--yellow);
         z-index: 9999;
-        transition: width .1s linear;
+        transition: width 0.1s linear;
       }
 
       /* ====================================================
@@ -117,15 +165,22 @@
         gap: 8px;
         font-family: var(--font-body);
         font-weight: 700;
-        font-size: .9rem;
+        font-size: 0.9rem;
         border-radius: var(--radius-sm);
         cursor: pointer;
         border: 2px solid transparent;
-        transition: background .18s, color .18s, border-color .18s, transform .12s, box-shadow .18s;
+        transition:
+          background 0.18s,
+          color 0.18s,
+          border-color 0.18s,
+          transform 0.12s,
+          box-shadow 0.18s;
         white-space: nowrap;
         text-align: center;
       }
-      .btn:active { transform: scale(.97); }
+      .btn:active {
+        transform: scale(0.97);
+      }
 
       .btn--primary {
         background: var(--yellow);
@@ -135,24 +190,37 @@
       .btn--primary:hover {
         background: var(--yellow-dark);
         border-color: var(--yellow-dark);
-        box-shadow: 0 0 20px rgba(242,230,0,.3);
+        box-shadow: 0 0 20px rgba(242, 230, 0, 0.3);
       }
 
       .btn--ghost {
         background: transparent;
         color: var(--white);
-        border-color: rgba(255,255,255,.35);
+        border-color: rgba(255, 255, 255, 0.35);
       }
       .btn--ghost:hover {
         border-color: var(--white);
-        background: rgba(255,255,255,.07);
+        background: rgba(255, 255, 255, 0.07);
       }
 
-      .btn--sm  { padding: 10px 18px; font-size: .82rem; }
-      .btn--lg  { padding: 15px 28px; font-size: 1rem; }
-      .btn--xl  { padding: 18px 36px; font-size: 1.05rem; }
+      .btn--sm {
+        padding: 10px 18px;
+        font-size: 0.82rem;
+      }
+      .btn--lg {
+        padding: 15px 28px;
+        font-size: 1rem;
+      }
+      .btn--xl {
+        padding: 18px 36px;
+        font-size: 1.05rem;
+      }
 
-      .ico-wa { width: 20px; height: 20px; flex-shrink: 0; }
+      .ico-wa {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
 
       /* ====================================================
          TYPOGRAPHY UTILITIES
@@ -161,31 +229,34 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        font-size: .75rem;
+        font-size: 0.75rem;
         font-weight: 700;
-        letter-spacing: .12em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--yellow);
         margin-bottom: 12px;
       }
       .dot {
         display: inline-block;
-        width: 6px; height: 6px;
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
         background: var(--yellow);
         flex-shrink: 0;
       }
-      .hl { color: var(--yellow); }
+      .hl {
+        color: var(--yellow);
+      }
       .chip {
         display: inline-block;
         padding: 5px 12px;
         border-radius: 100px;
-        background: rgba(242,230,0,.12);
-        border: 1px solid rgba(242,230,0,.3);
+        background: rgba(242, 230, 0, 0.12);
+        border: 1px solid rgba(242, 230, 0, 0.3);
         color: var(--yellow);
-        font-size: .75rem;
+        font-size: 0.75rem;
         font-weight: 700;
-        letter-spacing: .08em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
       .link-arrow {
@@ -194,10 +265,12 @@
         gap: 4px;
         color: var(--yellow);
         font-weight: 700;
-        font-size: .9rem;
-        transition: gap .15s;
+        font-size: 0.9rem;
+        transition: gap 0.15s;
       }
-      .link-arrow:hover { gap: 8px; }
+      .link-arrow:hover {
+        gap: 8px;
+      }
 
       /* ====================================================
          TRUST CARDS
@@ -216,30 +289,36 @@
         display: flex;
         align-items: flex-start;
         gap: 14px;
-        background: rgba(255,255,255,.04);
-        border: 1px solid rgba(255,255,255,.07);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
         border-radius: var(--radius);
         padding: clamp(16px, 2.5vw, 24px);
-        transition: border-color .2s, transform .2s;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
       }
       .trust-card:hover {
-        border-color: rgba(242,230,0,.3);
+        border-color: rgba(242, 230, 0, 0.3);
         transform: translateY(-2px);
       }
       .trust-card__icon {
-        width: 40px; height: 40px;
+        width: 40px;
+        height: 40px;
         color: var(--yellow);
         flex-shrink: 0;
       }
-      .trust-card__icon svg { width: 100%; height: 100%; }
+      .trust-card__icon svg {
+        width: 100%;
+        height: 100%;
+      }
       .trust-card__title {
-        font-size: .88rem;
+        font-size: 0.88rem;
         font-weight: 700;
         margin-bottom: 4px;
         color: var(--white);
       }
       .trust-card__text {
-        font-size: .78rem;
+        font-size: 0.78rem;
         color: var(--muted);
       }
 
@@ -263,14 +342,14 @@
       .filter {
         padding: 8px 20px;
         border-radius: 100px;
-        background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.1);
-        color: rgba(255,255,255,.65);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.65);
         font-family: var(--font-body);
-        font-size: .82rem;
+        font-size: 0.82rem;
         font-weight: 600;
         cursor: pointer;
-        transition: all .15s;
+        transition: all 0.15s;
       }
       .filter.is-active,
       .filter:hover {
@@ -297,17 +376,20 @@
       .step {
         position: relative;
         padding: 28px 24px;
-        background: rgba(255,255,255,.04);
-        border: 1px solid rgba(255,255,255,.07);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
         border-radius: var(--radius);
-        transition: border-color .2s;
+        transition: border-color 0.2s;
       }
-      .step:hover { border-color: rgba(242,230,0,.3); }
+      .step:hover {
+        border-color: rgba(242, 230, 0, 0.3);
+      }
       .step__num {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 44px; height: 44px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
         background: var(--yellow);
         color: var(--black);
@@ -322,20 +404,24 @@
         margin-bottom: 8px;
       }
       .step__text {
-        font-size: .85rem;
-        color: rgba(255,255,255,.6);
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.6);
         line-height: 1.55;
       }
 
       /* Connector line between steps (desktop) */
       .steps .step::after {
-        content: '';
+        content: "";
         position: absolute;
-        top: 44px; right: -16px;
-        width: 16px; height: 2px;
-        background: rgba(242,230,0,.25);
+        top: 44px;
+        right: -16px;
+        width: 16px;
+        height: 2px;
+        background: rgba(242, 230, 0, 0.25);
       }
-      .steps .step:last-child::after { display: none; }
+      .steps .step:last-child::after {
+        display: none;
+      }
 
       /* ====================================================
          COTIZADOR
@@ -362,7 +448,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 36px; height: 36px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         background: var(--yellow);
         color: var(--black);
@@ -371,13 +458,16 @@
         flex-shrink: 0;
         margin-top: 2px;
       }
-      .cs-step__body { flex: 1; min-width: 0; }
+      .cs-step__body {
+        flex: 1;
+        min-width: 0;
+      }
       .cs-step__label {
         display: block;
-        font-size: .78rem;
+        font-size: 0.78rem;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: .08em;
+        letter-spacing: 0.08em;
         color: var(--muted);
         margin-bottom: 10px;
       }
@@ -393,14 +483,14 @@
       .plan-btn {
         padding: 8px 16px;
         border-radius: 100px;
-        background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.1);
-        color: rgba(255,255,255,.65);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.65);
         font-family: var(--font-body);
-        font-size: .82rem;
+        font-size: 0.82rem;
         font-weight: 700;
         cursor: pointer;
-        transition: all .15s;
+        transition: all 0.15s;
       }
       .plan-btn.is-active,
       .plan-btn:hover {
@@ -410,16 +500,43 @@
       }
 
       /* Result */
-      .cs-step--result { background: rgba(255,255,255,.04); border-radius: var(--radius); padding: 24px; border: 1px solid rgba(255,255,255,.07); }
-      .cs-result-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 20px; }
-      .cs-result__label { display: block; font-size: .72rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
-      .cs-result__value { font-family: var(--font-display); font-size: 1.8rem; color: var(--yellow); }
-      .cs-result__price, .cs-result__down { font-family: var(--font-display); font-size: 1.3rem; color: var(--white); }
+      .cs-step--result {
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: var(--radius);
+        padding: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .cs-result-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+      .cs-result__label {
+        display: block;
+        font-size: 0.72rem;
+        color: var(--muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 4px;
+      }
+      .cs-result__value {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        color: var(--yellow);
+      }
+      .cs-result__price,
+      .cs-result__down {
+        font-family: var(--font-display);
+        font-size: 1.3rem;
+        color: var(--white);
+      }
 
       /* Finance summary */
       .finance-summary {
         background: var(--dark2);
-        border: 1px solid rgba(255,255,255,.09);
+        border: 1px solid rgba(255, 255, 255, 0.09);
         border-radius: var(--radius);
         padding: 24px;
         position: sticky;
@@ -434,13 +551,13 @@
         flex-wrap: wrap;
       }
       .finance-summary__badge {
-        font-size: .7rem;
+        font-size: 0.7rem;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: .09em;
-        background: rgba(242,230,0,.12);
+        letter-spacing: 0.09em;
+        background: rgba(242, 230, 0, 0.12);
         color: var(--yellow);
-        border: 1px solid rgba(242,230,0,.2);
+        border: 1px solid rgba(242, 230, 0, 0.2);
         border-radius: 100px;
         padding: 4px 10px;
       }
@@ -448,38 +565,114 @@
         display: flex;
         align-items: center;
         gap: 5px;
-        font-size: .7rem;
+        font-size: 0.7rem;
         color: var(--muted);
       }
       .finance-summary__status-dot {
-        width: 7px; height: 7px;
+        width: 7px;
+        height: 7px;
         border-radius: 50%;
         background: #22c55e;
         animation: blink 2s ease-in-out infinite;
       }
       @keyframes blink {
-        0%,100% { opacity: 1; }
-        50%      { opacity: .3; }
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
       }
 
-      .finance-summary__moto { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; }
-      .finance-summary__image-wrap { width: 72px; height: 52px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,.05); flex-shrink: 0; }
-      .finance-summary__image { width: 100%; height: 100%; object-fit: cover; }
-      .finance-summary__small { font-size: .68rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; display: block; margin-bottom: 2px; }
-      .finance-summary__name { font-size: .9rem; font-weight: 700; }
+      .finance-summary__moto {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .finance-summary__image-wrap {
+        width: 72px;
+        height: 52px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.05);
+        flex-shrink: 0;
+      }
+      .finance-summary__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .finance-summary__small {
+        font-size: 0.68rem;
+        color: var(--muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        display: block;
+        margin-bottom: 2px;
+      }
+      .finance-summary__name {
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
 
-      .finance-summary__installment { text-align: center; background: rgba(242,230,0,.07); border-radius: var(--radius-sm); padding: 18px; margin-bottom: 20px; }
-      .finance-summary__amount { display: block; font-family: var(--font-display); font-size: 2.4rem; color: var(--yellow); line-height: 1; }
-      .finance-summary__per-month { font-size: .75rem; color: var(--muted); }
+      .finance-summary__installment {
+        text-align: center;
+        background: rgba(242, 230, 0, 0.07);
+        border-radius: var(--radius-sm);
+        padding: 18px;
+        margin-bottom: 20px;
+      }
+      .finance-summary__amount {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 2.4rem;
+        color: var(--yellow);
+        line-height: 1;
+      }
+      .finance-summary__per-month {
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
 
-      .finance-summary__details { margin-bottom: 20px; }
-      .finance-summary__row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: .83rem; }
-      .finance-summary__row span { color: var(--muted); }
-      .finance-summary__row strong { color: var(--white); }
+      .finance-summary__details {
+        margin-bottom: 20px;
+      }
+      .finance-summary__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 9px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.83rem;
+      }
+      .finance-summary__row span {
+        color: var(--muted);
+      }
+      .finance-summary__row strong {
+        color: var(--white);
+      }
 
-      .finance-summary__notice { display: flex; gap: 10px; background: rgba(255,255,255,.04); border-radius: var(--radius-sm); padding: 12px; margin-bottom: 20px; }
-      .finance-summary__notice svg { flex-shrink: 0; color: var(--muted); margin-top: 1px; }
-      .finance-summary__notice p { font-size: .75rem; color: var(--muted); line-height: 1.5; }
+      .finance-summary__notice {
+        display: flex;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: var(--radius-sm);
+        padding: 12px;
+        margin-bottom: 20px;
+      }
+      .finance-summary__notice svg {
+        flex-shrink: 0;
+        color: var(--muted);
+        margin-top: 1px;
+      }
+      .finance-summary__notice p {
+        font-size: 0.75rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
 
       .finance-summary__cta {
         display: flex;
@@ -487,16 +680,21 @@
         justify-content: center;
         gap: 8px;
         padding: 14px;
-        background: #25D366;
+        background: #25d366;
         color: var(--black);
         border-radius: var(--radius-sm);
         font-weight: 700;
-        font-size: .9rem;
-        transition: background .15s;
+        font-size: 0.9rem;
+        transition: background 0.15s;
         cursor: pointer;
       }
-      .finance-summary__cta:hover { background: #1EBF5A; }
-      .finance-summary__cta svg { width: 20px; height: 20px; }
+      .finance-summary__cta:hover {
+        background: #1ebf5a;
+      }
+      .finance-summary__cta svg {
+        width: 20px;
+        height: 20px;
+      }
 
       /* ====================================================
          LEAD FORM
@@ -514,16 +712,16 @@
 
       .feature {
         padding: clamp(24px, 3vw, 40px);
-        background: rgba(255,255,255,.04);
-        border: 1px solid rgba(255,255,255,.08);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: var(--radius);
         display: flex;
         flex-direction: column;
         gap: 14px;
       }
       .feature--accent {
-        background: rgba(242,230,0,.06);
-        border-color: rgba(242,230,0,.2);
+        background: rgba(242, 230, 0, 0.06);
+        border-color: rgba(242, 230, 0, 0.2);
       }
       .feature__title {
         font-family: var(--font-display);
@@ -531,8 +729,8 @@
         text-transform: uppercase;
       }
       .feature__text {
-        font-size: .9rem;
-        color: rgba(255,255,255,.65);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.65);
         line-height: 1.6;
       }
 
@@ -540,19 +738,51 @@
          UBICACIONES
       ==================================================== */
       .location {
-        background: rgba(255,255,255,.04);
-        border: 1px solid rgba(255,255,255,.08);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: var(--radius);
         overflow: hidden;
       }
-      .location__map { width: 100%; aspect-ratio: 16/9; }
-      .location__map iframe { width: 100%; height: 100%; border: none; display: block; }
-      .location__body { padding: clamp(16px, 2.5vw, 24px); }
-      .location__city { font-family: var(--font-display); font-size: 1.6rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
-      .location__addr { font-size: .85rem; color: rgba(255,255,255,.65); margin-bottom: 4px; }
-      .location__hours { font-size: .78rem; color: var(--yellow); font-weight: 700; margin-bottom: 16px; }
-      .location__btns { display: flex; gap: 10px; flex-wrap: wrap; }
-      .ico-maps { width: 16px; height: 16px; }
+      .location__map {
+        width: 100%;
+        aspect-ratio: 16/9;
+      }
+      .location__map iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+      .location__body {
+        padding: clamp(16px, 2.5vw, 24px);
+      }
+      .location__city {
+        font-family: var(--font-display);
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .location__addr {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 4px;
+      }
+      .location__hours {
+        font-size: 0.78rem;
+        color: var(--yellow);
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+      .location__btns {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .ico-maps {
+        width: 16px;
+        height: 16px;
+      }
 
       /* ====================================================
          INSTAGRAM GRID
@@ -570,8 +800,18 @@
         display: block;
         position: relative;
       }
-      .ig-cell img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease, filter .4s; }
-      .ig-cell:hover img { transform: scale(1.06); filter: brightness(1.1); }
+      .ig-cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:
+          transform 0.4s ease,
+          filter 0.4s;
+      }
+      .ig-cell:hover img {
+        transform: scale(1.06);
+        filter: brightness(1.1);
+      }
 
       /* ====================================================
          CTA FINAL
@@ -585,10 +825,18 @@
       .cta-final__bg {
         position: absolute;
         inset: 0;
-        background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(242,230,0,.07) 0%, transparent 60%);
+        background: radial-gradient(
+          ellipse 80% 80% at 50% 50%,
+          rgba(242, 230, 0, 0.07) 0%,
+          transparent 60%
+        );
         pointer-events: none;
       }
-      .cta-final__inner { position: relative; z-index: 1; text-align: center; }
+      .cta-final__inner {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
       .cta-final__title {
         font-family: var(--font-display);
         font-size: clamp(2.2rem, 5vw, 4rem);
@@ -596,14 +844,18 @@
         line-height: 1;
         margin-bottom: 16px;
       }
-      .cta-final__sub { font-size: clamp(.9rem, 1.5vw, 1.05rem); color: rgba(255,255,255,.6); margin-bottom: 32px; }
+      .cta-final__sub {
+        font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 32px;
+      }
 
       /* ====================================================
          FOOTER
       ==================================================== */
       .footer {
         background: var(--dark);
-        border-top: 1px solid rgba(255,255,255,.07);
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
         padding-top: clamp(40px, 5vw, 60px);
       }
       .footer__inner {
@@ -614,13 +866,18 @@
         padding-bottom: 32px;
       }
       .footer__brand p {
-        font-size: .83rem;
-        color: rgba(255,255,255,.5);
+        font-size: 0.83rem;
+        color: rgba(255, 255, 255, 0.5);
         line-height: 1.65;
         margin-top: 10px;
       }
-      .footer__brand p span { color: rgba(255,255,255,.35); }
-      .footer__logo { height: 44px; width: auto; }
+      .footer__brand p span {
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .footer__logo {
+        height: 44px;
+        width: auto;
+      }
 
       .footer__nav {
         display: flex;
@@ -629,11 +886,13 @@
         text-align: center;
       }
       .footer__nav a {
-        font-size: .83rem;
-        color: rgba(255,255,255,.55);
-        transition: color .15s;
+        font-size: 0.83rem;
+        color: rgba(255, 255, 255, 0.55);
+        transition: color 0.15s;
       }
-      .footer__nav a:hover { color: var(--yellow); }
+      .footer__nav a:hover {
+        color: var(--yellow);
+      }
 
       .footer__contact {
         display: flex;
@@ -642,11 +901,13 @@
         align-items: flex-end;
       }
       .footer__ig {
-        font-size: .82rem;
-        color: rgba(255,255,255,.5);
-        transition: color .15s;
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition: color 0.15s;
       }
-      .footer__ig:hover { color: var(--yellow); }
+      .footer__ig:hover {
+        color: var(--yellow);
+      }
 
       .footer__bottom {
         display: flex;
@@ -655,76 +916,135 @@
         flex-wrap: wrap;
         gap: 8px;
         padding: 18px 0;
-        border-top: 1px solid rgba(255,255,255,.07);
-        font-size: .75rem;
-        color: rgba(255,255,255,.35);
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.35);
       }
 
       .credit-link {
-        color: rgba(255,255,255,.3);
-        font-size: .75rem;
-        transition: color .15s;
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.75rem;
+        transition: color 0.15s;
       }
-      .credit-link:hover { color: rgba(255,255,255,.7); }
-      .credit-link__dot { color: var(--yellow); }
-      .credit-link__tagline { opacity: .6; }
+      .credit-link:hover {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .credit-link__dot {
+        color: var(--yellow);
+      }
+      .credit-link__tagline {
+        opacity: 0.6;
+      }
 
       /* ====================================================
          WA WIDGET / LIGHTBOX (placeholder)
       ==================================================== */
-      #waWidget { position: fixed; bottom: 80px; right: 20px; z-index: 800; }
+      #waWidget {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        z-index: 800;
+      }
 
       .gallery-overlay {
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,.92);
+        background: rgba(0, 0, 0, 0.92);
         z-index: 2000;
         align-items: center;
         justify-content: center;
       }
-      .gallery-overlay.is-open { display: flex; }
-      .gallery-close, .gallery-nav {
+      .gallery-overlay.is-open {
+        display: flex;
+      }
+      .gallery-close,
+      .gallery-nav {
         position: absolute;
-        background: rgba(255,255,255,.12);
+        background: rgba(255, 255, 255, 0.12);
         border: none;
         color: var(--white);
         cursor: pointer;
         border-radius: 50%;
-        width: 44px; height: 44px;
+        width: 44px;
+        height: 44px;
         font-size: 1.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: background .15s;
+        transition: background 0.15s;
       }
-      .gallery-close { top: 20px; right: 20px; font-size: 1.8rem; }
-      .gallery-prev { left: 20px; top: 50%; transform: translateY(-50%); }
-      .gallery-next { right: 20px; top: 50%; transform: translateY(-50%); }
-      .gallery-close:hover, .gallery-nav:hover { background: rgba(255,255,255,.25); }
-      .gallery-content { max-width: 90vw; max-height: 90vh; text-align: center; }
-      .gallery-img { max-width: 100%; max-height: 80vh; border-radius: var(--radius-sm); object-fit: contain; }
-      .gallery-counter { color: rgba(255,255,255,.5); font-size: .82rem; margin-top: 12px; }
+      .gallery-close {
+        top: 20px;
+        right: 20px;
+        font-size: 1.8rem;
+      }
+      .gallery-prev {
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .gallery-next {
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .gallery-close:hover,
+      .gallery-nav:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+      .gallery-content {
+        max-width: 90vw;
+        max-height: 90vh;
+        text-align: center;
+      }
+      .gallery-img {
+        max-width: 100%;
+        max-height: 80vh;
+        border-radius: var(--radius-sm);
+        object-fit: contain;
+      }
+      .gallery-counter {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.82rem;
+        margin-top: 12px;
+      }
 
       /* ====================================================
          RESPONSIVE — TABLET (≤ 1024px)
       ==================================================== */
       @media (max-width: 1024px) {
-        .trust__grid { grid-template-columns: repeat(2, 1fr); }
-        .steps { grid-template-columns: repeat(2, 1fr); }
-        .steps .step::after { display: none; }
+        .trust__grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .steps .step::after {
+          display: none;
+        }
 
-        .cotizador-wrap { grid-template-columns: 1fr; }
-        .finance-summary { position: static; }
+        .cotizador-wrap {
+          grid-template-columns: 1fr;
+        }
+        .finance-summary {
+          position: static;
+        }
 
-        .ig-grid { grid-template-columns: repeat(2, 1fr); }
+        .ig-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
 
-        .footer__inner { grid-template-columns: 1fr 1fr; }
-        .footer__nav { text-align: left; }
-        .footer__contact { align-items: flex-start; }
+        .footer__inner {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer__nav {
+          text-align: left;
+        }
+        .footer__contact {
+          align-items: flex-start;
+        }
       }
-
-
 
       /* ====================================================
          ACCESIBILIDAD — focus visible
@@ -734,95 +1054,122 @@
         outline-offset: 3px;
         border-radius: 4px;
       }
-
-
-
     </style>
 
     <!-- ============================================================
          DATOS ESTRUCTURADOS (SEO local)
     ============================================================ -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "#org",
-          "name": "El 42 Motos",
-          "url": "https://el42motos.com.ar/",
-          "logo": "https://el42motos.com.ar/img/og-image.jpg",
-          "sameAs": ["https://www.instagram.com/el_42motos/"]
-        },
-        {
-          "@type": "MotorcycleDealer",
-          "@id": "#arrecifes",
-          "name": "El 42 Motos — Arrecifes",
-          "parentOrganization": { "@id": "#org" },
-          "image": "https://el42motos.com.ar/img/og-image.jpg",
-          "telephone": "+542478461332",
-          "priceRange": "$$",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Ruta 8 Km 176",
-            "addressLocality": "Arrecifes",
-            "addressRegion": "Buenos Aires",
-            "postalCode": "2740",
-            "addressCountry": "AR"
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "#org",
+            "name": "El 42 Motos",
+            "url": "https://el42motos.com.ar/",
+            "logo": "https://el42motos.com.ar/img/og-image.jpg",
+            "sameAs": ["https://www.instagram.com/el_42motos/"]
           },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": -34.0633,
-            "longitude": -60.1036
+          {
+            "@type": "MotorcycleDealer",
+            "@id": "#arrecifes",
+            "name": "El 42 Motos — Arrecifes",
+            "parentOrganization": { "@id": "#org" },
+            "image": "https://el42motos.com.ar/img/og-image.jpg",
+            "telephone": "+542478461332",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ruta 8 Km 176",
+              "addressLocality": "Arrecifes",
+              "addressRegion": "Buenos Aires",
+              "postalCode": "2740",
+              "addressCountry": "AR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -34.0633,
+              "longitude": -60.1036
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "09:00",
+                "closes": "18:00"
+              }
+            ]
           },
-          "openingHoursSpecification": [{
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-            "opens": "09:00",
-            "closes": "18:00"
-          }]
-        },
-        {
-          "@type": "MotorcycleDealer",
-          "@id": "#capitansarmiento",
-          "name": "El 42 Motos — Capitán Sarmiento",
-          "parentOrganization": { "@id": "#org" },
-          "image": "https://el42motos.com.ar/img/og-image.jpg",
-          "telephone": "+542478403332",
-          "priceRange": "$$",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Av. Alem 1542",
-            "addressLocality": "Capitán Sarmiento",
-            "addressRegion": "Buenos Aires",
-            "postalCode": "2752",
-            "addressCountry": "AR"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": -34.1722,
-            "longitude": -59.7903
-          },
-          "openingHoursSpecification": [{
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-            "opens": "09:00",
-            "closes": "18:00"
-          }]
-        }
-      ]
-    }
+          {
+            "@type": "MotorcycleDealer",
+            "@id": "#capitansarmiento",
+            "name": "El 42 Motos — Capitán Sarmiento",
+            "parentOrganization": { "@id": "#org" },
+            "image": "https://el42motos.com.ar/img/og-image.jpg",
+            "telephone": "+542478403332",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Alem 1542",
+              "addressLocality": "Capitán Sarmiento",
+              "addressRegion": "Buenos Aires",
+              "postalCode": "2752",
+              "addressCountry": "AR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -34.1722,
+              "longitude": -59.7903
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "09:00",
+                "closes": "18:00"
+              }
+            ]
+          }
+        ]
+      }
     </script>
-
   </head>
   <body>
     <!-- Scroll Progress bar — DEBE estar en body, no en head -->
     <div id="scrollProgress" class="scroll-progress" aria-hidden="true"></div>
 
     <noscript>
-      <div style="background:#f2e600;color:#111111;text-align:center;padding:12px 16px;font-family:sans-serif;font-weight:700;">
+      <div
+        style="
+          background: #f2e600;
+          color: #111111;
+          text-align: center;
+          padding: 12px 16px;
+          font-family: sans-serif;
+          font-weight: 700;
+        "
+      >
         Para ver el catálogo completo activá JavaScript, o escribinos por
-        <a href="https://www.instagram.com/el_42motos/" style="color:#111111;text-decoration:underline">Instagram @el_42motos</a>.
+        <a
+          href="https://www.instagram.com/el_42motos/"
+          style="color: #111111; text-decoration: underline"
+          >Instagram @el_42motos</a
+        >.
       </div>
     </noscript>
 
@@ -831,45 +1178,181 @@
       <nav class="nav-container container" aria-label="Navegación principal">
         <div class="nav-bar">
           <a href="#inicio" class="brand" aria-label="El 42 Motos — Inicio">
-            <img src="img/logo.png" alt="El 42 Motos" class="brand__logo" width="804" height="697" />
+            <img
+              src="img/logo.png"
+              alt="El 42 Motos"
+              class="brand__logo"
+              width="804"
+              height="697"
+            />
           </a>
 
           <ul class="nav-links" id="navLinks">
-            <li><a href="#motos"        class="nav-link" data-section="motos">Motos</a></li>
-            <li><a href="#como-compras" class="nav-link" data-section="como-compras">Cómo comprás</a></li>
-            <li><a href="#cotizador"    class="nav-link" data-section="cotizador">Cotizador</a></li>
-            <li><a href="#contacto"     class="nav-link" data-section="contacto">Contacto</a></li>
-            <li><a href="#usados"       class="nav-link" data-section="usados">Tu usado</a></li>
-            <li><a href="#ubicaciones"  class="nav-link" data-section="ubicaciones">Sucursales</a></li>
+            <li>
+              <a href="#motos" class="nav-link" data-section="motos">Motos</a>
+            </li>
+            <li>
+              <a
+                href="#como-compras"
+                class="nav-link"
+                data-section="como-compras"
+                >Cómo comprás</a
+              >
+            </li>
+            <li>
+              <a href="#cotizador" class="nav-link" data-section="cotizador"
+                >Cotizador</a
+              >
+            </li>
+            <li>
+              <a href="#contacto" class="nav-link" data-section="contacto"
+                >Contacto</a
+              >
+            </li>
+            <li>
+              <a href="#usados" class="nav-link" data-section="usados"
+                >Tu usado</a
+              >
+            </li>
+            <li>
+              <a href="#ubicaciones" class="nav-link" data-section="ubicaciones"
+                >Sucursales</a
+              >
+            </li>
           </ul>
 
           <div class="nav-actions">
-            <a href="#" class="btn btn--primary btn--sm nav-wa js-wa"
-               data-wa-msg="¡Hola El 42! Quiero consultar por una moto. ¿Me asesoran?">
+            <a
+              href="#"
+              class="btn btn--primary btn--sm nav-wa js-wa"
+              data-wa-msg="¡Hola El 42! Quiero consultar por una moto. ¿Me asesoran?"
+            >
               <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z" fill="currentColor"/>
+                <path
+                  d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"
+                  fill="currentColor"
+                />
               </svg>
               <span class="nav-wa__text">Consultar</span>
             </a>
-            <button type="button" class="nav-hamburger" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMobile">
+            <button
+              type="button"
+              class="nav-hamburger"
+              id="navToggle"
+              aria-label="Abrir menú"
+              aria-expanded="false"
+              aria-controls="navMobile"
+            >
               <span></span><span></span><span></span>
             </button>
           </div>
         </div>
 
         <!-- Mobile panel -->
-        <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menú de navegación">
+        <div
+          class="nav-mobile"
+          id="navMobile"
+          role="dialog"
+          aria-label="Menú de navegación"
+        >
           <div class="nav-mobile__inner">
-            <a href="#motos"        class="nav-mobile__link">Motos        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-            <a href="#como-compras" class="nav-mobile__link">Cómo comprás <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-            <a href="#cotizador"    class="nav-mobile__link">Cotizador    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-            <a href="#contacto"     class="nav-mobile__link">Contacto     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-            <a href="#usados"       class="nav-mobile__link">Tu usado     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-            <a href="#ubicaciones"  class="nav-mobile__link">Sucursales   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+            <a href="#motos" class="nav-mobile__link"
+              >Motos
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" /></svg
+            ></a>
+            <a href="#como-compras" class="nav-mobile__link"
+              >Cómo comprás
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" /></svg
+            ></a>
+            <a href="#cotizador" class="nav-mobile__link"
+              >Cotizador
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" /></svg
+            ></a>
+            <a href="#contacto" class="nav-mobile__link"
+              >Contacto
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" /></svg
+            ></a>
+            <a href="#usados" class="nav-mobile__link"
+              >Tu usado
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" /></svg
+            ></a>
+            <a href="#ubicaciones" class="nav-mobile__link"
+              >Sucursales
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" /></svg
+            ></a>
             <div class="nav-mobile__cta">
-              <a href="#" class="btn btn--primary nav-mobile__wa js-wa" style="width:100%;justify-content:center;"
-                 data-wa-msg="¡Hola El 42! Quiero consultar por una moto. ¿Me asesoran?">
-                <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z" fill="currentColor"/></svg>
+              <a
+                href="#"
+                class="btn btn--primary nav-mobile__wa js-wa"
+                style="width: 100%; justify-content: center"
+                data-wa-msg="¡Hola El 42! Quiero consultar por una moto. ¿Me asesoran?"
+              >
+                <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"
+                    fill="currentColor"
+                  />
+                </svg>
                 Consultar por WhatsApp
               </a>
             </div>
@@ -898,7 +1381,8 @@
             </h1>
 
             <h2 class="hero__sub">
-              0 km y usadas seleccionadas · Financiación · Atención personalizada.
+              0 km y usadas seleccionadas · Financiación · Atención
+              personalizada.
               <br />
               Consultá hoy y salí andando.
             </h2>
@@ -913,11 +1397,7 @@
                 class="btn btn--ghost btn--xl js-wa"
                 data-wa-msg="¡Hola El 42! Quiero que me asesoren para comprar una moto."
               >
-                <svg
-                  class="ico-wa"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
+                <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"
                     fill="currentColor"
@@ -982,7 +1462,24 @@
           <div class="trust__grid">
             <div class="trust-card">
               <div class="trust-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" fill="none"><rect x="3" y="7" width="26" height="18" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M3 13h26M9 20h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="23" cy="20" r="2" fill="currentColor"/></svg>
+                <svg viewBox="0 0 32 32" fill="none">
+                  <rect
+                    x="3"
+                    y="7"
+                    width="26"
+                    height="18"
+                    rx="3"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <path
+                    d="M3 13h26M9 20h6"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="23" cy="20" r="2" fill="currentColor" />
+                </svg>
               </div>
               <div class="trust-card__body">
                 <h3 class="trust-card__title">Financiación a tu medida</h3>
@@ -991,7 +1488,29 @@
             </div>
             <div class="trust-card">
               <div class="trust-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" fill="none"><circle cx="8" cy="22" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="24" cy="22" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M12 22h8l4-7h-6l-3-4H9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg viewBox="0 0 32 32" fill="none">
+                  <circle
+                    cx="8"
+                    cy="22"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <circle
+                    cx="24"
+                    cy="22"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <path
+                    d="M12 22h8l4-7h-6l-3-4H9"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               </div>
               <div class="trust-card__body">
                 <h3 class="trust-card__title">Motos 0km y usadas</h3>
@@ -1000,7 +1519,21 @@
             </div>
             <div class="trust-card">
               <div class="trust-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="10" r="5.5" stroke="currentColor" stroke-width="1.8"/><path d="M6 28c0-5 4.5-8 10-8s10 3 10 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <svg viewBox="0 0 32 32" fill="none">
+                  <circle
+                    cx="16"
+                    cy="10"
+                    r="5.5"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <path
+                    d="M6 28c0-5 4.5-8 10-8s10 3 10 8"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
               </div>
               <div class="trust-card__body">
                 <h3 class="trust-card__title">Asesoramiento personalizado</h3>
@@ -1009,7 +1542,20 @@
             </div>
             <div class="trust-card">
               <div class="trust-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" fill="none"><path d="M16 4l10 3.77V16c0 6.27-4.37 10-10 13.23C10.37 26 6 22.27 6 16V7.77L16 4z" stroke="currentColor" stroke-width="1.8"/><path d="M12 16l3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg viewBox="0 0 32 32" fill="none">
+                  <path
+                    d="M16 4l10 3.77V16c0 6.27-4.37 10-10 13.23C10.37 26 6 22.27 6 16V7.77L16 4z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <path
+                    d="M12 16l3 3 5-6"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               </div>
               <div class="trust-card__body">
                 <h3 class="trust-card__title">Confianza que nos mueve</h3>
@@ -1026,33 +1572,39 @@
 
         <div class="brands__inner">
           <div class="brands__track">
-
             <div class="brands__group">
-              <img class="brand-img" src="img/brands/honda.svg"   alt="Honda" />
-              <img class="brand-img" src="img/brands/yamaha.svg"  alt="Yamaha" />
-              <img class="brand-img" src="img/brands/suzuki.png"  alt="Suzuki" />
-              <img class="brand-img" src="img/brands/gilera.svg"  alt="Gilera" />
-              <img class="brand-img" src="img/brands/zanella.png" alt="Zanella" />
-              <img class="brand-img" src="img/brands/mondial.png" alt="Mondial" />
-              <img class="brand-img" src="img/brands/keller.png"  alt="Keller" />
-              <img class="brand-img" src="img/brands/keeway.png"  alt="Keeway" />
-              <img class="brand-img" src="img/brands/bajaj.svg"   alt="Bajaj" />
-              <img class="brand-img" src="img/brands/tvs.png"     alt="TVS" />
+              <img class="brand-img" src="img/brands/honda.svg" alt="Honda" />
+              <img class="brand-img" src="img/brands/yamaha.svg" alt="Yamaha" />
+              <img class="brand-img" src="img/brands/suzuki.png" alt="Suzuki" />
+              <img class="brand-img" src="img/brands/gilera.svg" alt="Gilera" />
+              <img
+                class="brand-img"
+                src="img/brands/zanella.png"
+                alt="Zanella"
+              />
+              <img
+                class="brand-img"
+                src="img/brands/mondial.png"
+                alt="Mondial"
+              />
+              <img class="brand-img" src="img/brands/keller.png" alt="Keller" />
+              <img class="brand-img" src="img/brands/keeway.png" alt="Keeway" />
+              <img class="brand-img" src="img/brands/bajaj.svg" alt="Bajaj" />
+              <img class="brand-img" src="img/brands/tvs.png" alt="TVS" />
             </div>
 
             <div class="brands__group" aria-hidden="true">
-              <img class="brand-img" src="img/brands/honda.svg"   alt="" />
-              <img class="brand-img" src="img/brands/yamaha.svg"  alt="" />
-              <img class="brand-img" src="img/brands/suzuki.png"  alt="" />
-              <img class="brand-img" src="img/brands/gilera.svg"  alt="" />
+              <img class="brand-img" src="img/brands/honda.svg" alt="" />
+              <img class="brand-img" src="img/brands/yamaha.svg" alt="" />
+              <img class="brand-img" src="img/brands/suzuki.png" alt="" />
+              <img class="brand-img" src="img/brands/gilera.svg" alt="" />
               <img class="brand-img" src="img/brands/zanella.png" alt="" />
               <img class="brand-img" src="img/brands/mondial.png" alt="" />
-              <img class="brand-img" src="img/brands/keller.png"  alt="" />
-              <img class="brand-img" src="img/brands/keeway.png"  alt="" />
-              <img class="brand-img" src="img/brands/bajaj.svg"   alt="" />
-              <img class="brand-img" src="img/brands/tvs.png"     alt="" />
+              <img class="brand-img" src="img/brands/keller.png" alt="" />
+              <img class="brand-img" src="img/brands/keeway.png" alt="" />
+              <img class="brand-img" src="img/brands/bajaj.svg" alt="" />
+              <img class="brand-img" src="img/brands/tvs.png" alt="" />
             </div>
-
           </div>
         </div>
       </section>
@@ -1064,22 +1616,44 @@
             <p class="eyebrow"><span class="dot"></span> Catálogo</p>
             <h2 class="section__title">
               <span class="section__title-line">Motos</span>
-              <span class="section__title-line section__title-line--accent">Listas para elegir</span>
+              <span class="section__title-line section__title-line--accent"
+                >Listas para elegir</span
+              >
             </h2>
-            <p class="section__lead">Precios claros, financiación a consultar y toma de tu usado como parte de pago.</p>
+            <p class="section__lead">
+              Precios claros, financiación a consultar y toma de tu usado como
+              parte de pago.
+            </p>
           </header>
 
-          <div class="filters" role="group" aria-label="Filtrar motos por condición">
-            <button class="filter is-active" data-filter="all"   aria-pressed="true">Todas</button>
-            <button class="filter"           data-filter="0km"   aria-pressed="false">0 KM</button>
-            <button class="filter"           data-filter="usada" aria-pressed="false">Usadas</button>
+          <div
+            class="filters"
+            role="group"
+            aria-label="Filtrar motos por condición"
+          >
+            <button
+              class="filter is-active"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              Todas
+            </button>
+            <button class="filter" data-filter="0km" aria-pressed="false">
+              0 KM
+            </button>
+            <button class="filter" data-filter="usada" aria-pressed="false">
+              Usadas
+            </button>
           </div>
 
           <div class="grid" id="motoGrid"></div>
 
           <div class="section__foot">
-            <a href="#" class="btn btn--ghost js-wa"
-               data-wa-msg="¡Hola El 42! Quiero ver el listado completo de motos disponibles.">
+            <a
+              href="#"
+              class="btn btn--ghost js-wa"
+              data-wa-msg="¡Hola El 42! Quiero ver el listado completo de motos disponibles."
+            >
               ¿No ves la que buscás? Consultá stock completo
             </a>
           </div>
@@ -1093,7 +1667,9 @@
             <p class="eyebrow"><span class="dot"></span> Simple y rápido</p>
             <h2 class="section__title">
               <span class="section__title-line">Cómo</span>
-              <span class="section__title-line section__title-line--accent">comprás</span>
+              <span class="section__title-line section__title-line--accent"
+                >comprás</span
+              >
             </h2>
             <p class="section__lead">Cuatro pasos para salir andando.</p>
           </header>
@@ -1102,12 +1678,17 @@
             <li class="step">
               <span class="step__num">1</span>
               <h3 class="step__title">Elegís tu moto</h3>
-              <p class="step__text">0km o usada seleccionada. Te mostramos opciones según lo que buscás.</p>
+              <p class="step__text">
+                0km o usada seleccionada. Te mostramos opciones según lo que
+                buscás.
+              </p>
             </li>
             <li class="step">
               <span class="step__num">2</span>
               <h3 class="step__title">Consultás financiación</h3>
-              <p class="step__text">Vemos juntos las opciones disponibles para tu moto.</p>
+              <p class="step__text">
+                Vemos juntos las opciones disponibles para tu moto.
+              </p>
             </li>
             <li class="step">
               <span class="step__num">3</span>
@@ -1117,7 +1698,9 @@
             <li class="step">
               <span class="step__num">4</span>
               <h3 class="step__title">Coordinás la entrega</h3>
-              <p class="step__text">Arreglamos todo y salís con tu moto nueva.</p>
+              <p class="step__text">
+                Arreglamos todo y salís con tu moto nueva.
+              </p>
             </li>
           </ol>
         </div>
@@ -1130,9 +1713,14 @@
             <p class="eyebrow"><span class="dot"></span> Cotizador online</p>
             <h2 class="section__title">
               <span class="section__title-line">Calculá tu</span>
-              <span class="section__title-line section__title-line--accent">cuota en segundos</span>
+              <span class="section__title-line section__title-line--accent"
+                >cuota en segundos</span
+              >
             </h2>
-            <p class="section__lead">Elegí la moto, seleccioná las cuotas y al instante ves el valor. Sin formularios largos, sin esperar.</p>
+            <p class="section__lead">
+              Elegí la moto, seleccioná las cuotas y al instante ves el valor.
+              Sin formularios largos, sin esperar.
+            </p>
           </header>
 
           <div class="cotizador-wrap">
@@ -1143,8 +1731,20 @@
                   <span class="cs-step__label">Elegí tu moto</span>
                   <div class="cs-select" id="csMotoSelect">
                     <button class="cs-trigger" id="csTrigger" type="button">
-                      <span class="cs-trigger__placeholder">Seleccioná una moto</span>
-                      <svg class="cs-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                      <span class="cs-trigger__placeholder"
+                        >Seleccioná una moto</span
+                      >
+                      <svg
+                        class="cs-arrow"
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                      >
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
                     </button>
                     <div class="cs-dropdown" id="csDropdown"></div>
                   </div>
@@ -1165,7 +1765,9 @@
                   <div class="cs-result-grid">
                     <div>
                       <span class="cs-result__label">Cuota por mes</span>
-                      <strong class="cs-result__value" id="csInstallment">$0</strong>
+                      <strong class="cs-result__value" id="csInstallment"
+                        >$0</strong
+                      >
                     </div>
                     <div>
                       <span class="cs-result__label">Precio de lista</span>
@@ -1176,18 +1778,44 @@
                       <strong class="cs-result__down" id="csDown">$0</strong>
                     </div>
                   </div>
-                  <a href="#" id="csWhatsAppBtn" class="btn btn--primary btn--lg cs-wa-btn" style="width:100%;justify-content:center;" target="_blank" rel="noopener">
-                    <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z" fill="currentColor"/></svg>
+                  <a
+                    href="#"
+                    id="csWhatsAppBtn"
+                    class="btn btn--primary btn--lg cs-wa-btn"
+                    style="width: 100%; justify-content: center"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"
+                        fill="currentColor"
+                      />
+                    </svg>
                     Consultar esta simulación
                   </a>
-                  <small style="display:block;margin-top:8px;color:#90989a;font-size:.76rem;line-height:1.4;" id="csDisclaimer"></small>
+                  <small
+                    style="
+                      display: block;
+                      margin-top: 8px;
+                      color: #90989a;
+                      font-size: 0.76rem;
+                      line-height: 1.4;
+                    "
+                    id="csDisclaimer"
+                  ></small>
                 </div>
               </div>
             </div>
 
-            <aside class="finance-summary" aria-label="Resumen de la financiación">
+            <aside
+              class="finance-summary"
+              aria-label="Resumen de la financiación"
+            >
               <div class="finance-summary__top">
-                <span class="finance-summary__badge">Simulación de financiación</span>
+                <span class="finance-summary__badge"
+                  >Simulación de financiación</span
+                >
                 <span class="finance-summary__status">
                   <span class="finance-summary__status-dot"></span>
                   Actualización instantánea
@@ -1196,34 +1824,64 @@
 
               <div class="finance-summary__moto">
                 <div class="finance-summary__image-wrap">
-                  <img src="" alt="" id="summaryMotoImage" class="finance-summary__image" />
+                  <img
+                    src=""
+                    alt=""
+                    id="summaryMotoImage"
+                    class="finance-summary__image"
+                  />
                 </div>
                 <div>
                   <span class="finance-summary__small">Moto seleccionada</span>
-                  <h3 id="summaryMotoName" class="finance-summary__name">Seleccioná una moto</h3>
+                  <h3 id="summaryMotoName" class="finance-summary__name">
+                    Seleccioná una moto
+                  </h3>
                 </div>
               </div>
 
               <div class="finance-summary__installment">
                 <span class="finance-summary__small">Tu cuota estimada</span>
-                <strong id="summaryInstallment" class="finance-summary__amount">$0</strong>
+                <strong id="summaryInstallment" class="finance-summary__amount"
+                  >$0</strong
+                >
                 <span class="finance-summary__per-month">por mes</span>
               </div>
 
               <div class="finance-summary__details">
-                <div class="finance-summary__row"><span>Precio de lista</span>   <strong id="summaryPrice">$0</strong></div>
-                <div class="finance-summary__row"><span>Entrega inicial</span>   <strong id="summaryDown">$0</strong></div>
-                <div class="finance-summary__row"><span>Saldo a financiar</span> <strong id="summaryFinanced">$0</strong></div>
-                <div class="finance-summary__row"><span>Plan seleccionado</span> <strong><span id="summaryInstallments">0</span> cuotas</strong></div>
+                <div class="finance-summary__row">
+                  <span>Precio de lista</span>
+                  <strong id="summaryPrice">$0</strong>
+                </div>
+                <div class="finance-summary__row">
+                  <span>Entrega inicial</span>
+                  <strong id="summaryDown">$0</strong>
+                </div>
+                <div class="finance-summary__row">
+                  <span>Saldo a financiar</span>
+                  <strong id="summaryFinanced">$0</strong>
+                </div>
+                <div class="finance-summary__row">
+                  <span>Plan seleccionado</span>
+                  <strong
+                    ><span id="summaryInstallments">0</span> cuotas</strong
+                  >
+                </div>
               </div>
 
-              <div class="finance-summary__notice">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg>
-                <p>Esta simulación es orientativa. La financiación final queda sujeta a aprobación crediticia, gastos administrativos y vigencia del precio.</p>
-              </div>
 
-              <a href="#" id="summaryWhatsAppBtn" class="finance-summary__cta" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"/></svg>
+              <a
+                href="#"
+                id="summaryWhatsAppBtn"
+                class="finance-summary__cta"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"
+                  />
+                </svg>
                 Consultar esta financiación
               </a>
             </aside>
@@ -1258,11 +1916,23 @@
               <div class="lead-form__grid">
                 <label class="lead-field">
                   <span>Nombre</span>
-                  <input type="text" id="leadName" required placeholder="Tu nombre" autocomplete="name" />
+                  <input
+                    type="text"
+                    id="leadName"
+                    required
+                    placeholder="Tu nombre"
+                    autocomplete="name"
+                  />
                 </label>
                 <label class="lead-field">
                   <span>WhatsApp</span>
-                  <input type="tel" id="leadPhone" required placeholder="Ej: 2478 123456" autocomplete="tel" />
+                  <input
+                    type="tel"
+                    id="leadPhone"
+                    required
+                    placeholder="Ej: 2478 123456"
+                    autocomplete="tel"
+                  />
                 </label>
               </div>
               <label class="lead-field">
@@ -1273,26 +1943,40 @@
               </label>
               <label class="lead-field">
                 <span>Mensaje (opcional)</span>
-                <textarea id="leadMessage" rows="2" placeholder="Ej: Quiero saber cuotas de una 0km..."></textarea>
+                <textarea
+                  id="leadMessage"
+                  rows="2"
+                  placeholder="Ej: Quiero saber cuotas de una 0km..."
+                ></textarea>
               </label>
               <button
-  type="submit"
-  class="btn btn--primary btn--lg lead-form__btn"
-  id="leadSubmitBtn"
->
-  <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
-    <!-- path -->
-  </svg>
+                type="submit"
+                class="btn btn--primary btn--lg lead-form__btn"
+                id="leadSubmitBtn"
+              >
+                <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
+                  <!-- path -->
+                </svg>
 
-  Enviar consulta
+                Enviar consulta
               </button>
-              <p class="lead-form__foot">Respuesta en menos de 30 min en horario comercial</p>
+              <p class="lead-form__foot">
+                Respuesta en menos de 30 min en horario comercial
+              </p>
               <div class="lead-form__success" id="leadSuccess">
                 <strong>¡Recibido!</strong>
-                <p>Te escribimos al WhatsApp en los próximos minutos. Si querés hablar ya mismo, tocá acá.</p>
-                <a href="#" class="btn btn--primary btn--sm js-wa" style="margin-top:16px;"
-                   data-wa-msg="¡Hola El 42! Ya completé el formulario en la web y quiero avanzar. ¿Me asesoran?"
-                   target="_blank" rel="noopener">
+                <p>
+                  Te escribimos al WhatsApp en los próximos minutos. Si querés
+                  hablar ya mismo, tocá acá.
+                </p>
+                <a
+                  href="#"
+                  class="btn btn--primary btn--sm js-wa"
+                  style="margin-top: 16px"
+                  data-wa-msg="¡Hola El 42! Ya completé el formulario en la web y quiero avanzar. ¿Me asesoran?"
+                  target="_blank"
+                  rel="noopener"
+                >
                   Hablar ahora por WhatsApp
                 </a>
               </div>
@@ -1307,7 +1991,10 @@
           <article class="feature">
             <span class="chip">Usadas seleccionadas</span>
             <h3 class="feature__title">Usados con respaldo</h3>
-            <p class="feature__text">Motos revisadas y seleccionadas. Te contamos el estado real de cada una para que compres tranquilo y con confianza.</p>
+            <p class="feature__text">
+              Motos revisadas y seleccionadas. Te contamos el estado real de
+              cada una para que compres tranquilo y con confianza.
+            </p>
             <ul class="ticklist ticklist--compact">
               <li>Motor y frenos revisados</li>
               <li>Documentación al día</li>
@@ -1319,9 +2006,15 @@
           <article class="feature feature--accent">
             <span class="chip">Toma de usados</span>
             <h3 class="feature__title">Traé tu moto como parte de pago</h3>
-            <p class="feature__text">La usamos a cuenta de tu próxima moto. Pasanos los datos y te cotizamos lo que vale.</p>
-            <a href="#" class="btn btn--primary js-wa"
-               data-wa-msg="¡Hola El 42! Quiero entregar mi moto usada como parte de pago. Te paso los datos: marca, modelo, año y km.">
+            <p class="feature__text">
+              La usamos a cuenta de tu próxima moto. Pasanos los datos y te
+              cotizamos lo que vale.
+            </p>
+            <a
+              href="#"
+              class="btn btn--primary js-wa"
+              data-wa-msg="¡Hola El 42! Quiero entregar mi moto usada como parte de pago. Te paso los datos: marca, modelo, año y km."
+            >
               Cotizar mi usado
             </a>
           </article>
@@ -1335,28 +2028,66 @@
             <p class="eyebrow"><span class="dot"></span> Te esperamos</p>
             <h2 class="section__title">
               <span class="section__title-line">Nuestras</span>
-              <span class="section__title-line section__title-line--accent">sucursales</span>
+              <span class="section__title-line section__title-line--accent"
+                >sucursales</span
+              >
             </h2>
-            <p class="section__lead">Acercate o escribinos. Atención rápida y de confianza.</p>
+            <p class="section__lead">
+              Acercate o escribinos. Atención rápida y de confianza.
+            </p>
           </header>
 
           <div class="two-cards">
             <article class="location">
               <div class="location__map">
-                <iframe src="https://maps.google.com/maps?q=Ruta+8+Km+176+Arrecifes+Buenos+Aires&output=embed"
-                  loading="lazy" allowfullscreen title="Mapa de Arrecifes" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                  src="https://maps.google.com/maps?q=Ruta+8+Km+176+Arrecifes+Buenos+Aires&output=embed"
+                  loading="lazy"
+                  allowfullscreen
+                  title="Mapa de Arrecifes"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
               <div class="location__body">
                 <h3 class="location__city">Arrecifes</h3>
-                <p class="location__addr">Ruta 8 Km 176, Arrecifes, Buenos Aires</p>
+                <p class="location__addr">
+                  Ruta 8 Km 176, Arrecifes, Buenos Aires
+                </p>
                 <p class="location__hours">Lun a Sáb · 9 a 18 hs</p>
                 <div class="location__btns">
-                  <a href="https://www.google.com/maps/search/?api=1&query=El+42+Motos+Arrecifes" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">
-                    <svg class="ico-maps" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=El+42+Motos+Arrecifes"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--ghost btn--sm"
+                  >
+                    <svg
+                      class="ico-maps"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
                     Ver en Maps
                   </a>
-                  <a href="#" class="btn btn--primary btn--sm js-wa" data-wa-msg="¡Hola El 42! Quiero consultar por la sucursal de Arrecifes.">
-                    <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z" fill="currentColor"/></svg>
+                  <a
+                    href="#"
+                    class="btn btn--primary btn--sm js-wa"
+                    data-wa-msg="¡Hola El 42! Quiero consultar por la sucursal de Arrecifes."
+                  >
+                    <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"
+                        fill="currentColor"
+                      />
+                    </svg>
                     WhatsApp
                   </a>
                 </div>
@@ -1365,20 +2096,54 @@
 
             <article class="location">
               <div class="location__map">
-                <iframe src="https://maps.google.com/maps?q=Av.+Alem+1542+Capitan+Sarmiento+Buenos+Aires&output=embed"
-                  loading="lazy" allowfullscreen title="Mapa de Capitán Sarmiento" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                  src="https://maps.google.com/maps?q=Av.+Alem+1542+Capitan+Sarmiento+Buenos+Aires&output=embed"
+                  loading="lazy"
+                  allowfullscreen
+                  title="Mapa de Capitán Sarmiento"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
               <div class="location__body">
                 <h3 class="location__city">Capitán Sarmiento</h3>
-                <p class="location__addr">Av. Alem 1542, Capitán Sarmiento, Buenos Aires</p>
+                <p class="location__addr">
+                  Av. Alem 1542, Capitán Sarmiento, Buenos Aires
+                </p>
                 <p class="location__hours">Lun a Sáb · 9 a 18 hs</p>
                 <div class="location__btns">
-                  <a href="https://www.google.com/maps/search/?api=1&query=El+42+Motos+Capitan+Sarmiento" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">
-                    <svg class="ico-maps" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=El+42+Motos+Capitan+Sarmiento"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn--ghost btn--sm"
+                  >
+                    <svg
+                      class="ico-maps"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
                     Ver en Maps
                   </a>
-                  <a href="#" class="btn btn--primary btn--sm js-wa" data-wa-msg="¡Hola El 42! Quiero consultar por la sucursal de Capitán Sarmiento.">
-                    <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z" fill="currentColor"/></svg>
+                  <a
+                    href="#"
+                    class="btn btn--primary btn--sm js-wa"
+                    data-wa-msg="¡Hola El 42! Quiero consultar por la sucursal de Capitán Sarmiento."
+                  >
+                    <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"
+                        fill="currentColor"
+                      />
+                    </svg>
                     WhatsApp
                   </a>
                 </div>
@@ -1392,32 +2157,121 @@
       <section class="section section--alt" id="comunidad">
         <div class="container">
           <header class="section__head">
-<p class="eyebrow"><span class="dot"></span> Comunidad</p>
+            <p class="eyebrow"><span class="dot"></span> Comunidad</p>
             <h2 class="section__title">
               <span class="section__title-line">El 42: entregas</span>
-              <span class="section__title-line section__title-line--accent">reales, todos los días</span>
+              <span class="section__title-line section__title-line--accent"
+                >reales, todos los días</span
+              >
             </h2>
-            <p class="section__lead">Seguinos en Instagram y mirá las motos que ya salieron andando.</p>
+            <p class="section__lead">
+              Seguinos en Instagram y mirá las motos que ya salieron andando.
+            </p>
           </header>
 
           <div class="ig-grid">
-            <a class="ig-cell" href="https://www.instagram.com/el_42motos/" target="_blank" rel="noopener" aria-label="Ver publicaciones de El 42 Motos en Instagram">
-              <img src="img/ig-1.jpg" alt="Entrega El 42 Motos" loading="lazy" />
+            <a
+              class="ig-cell"
+              href="https://www.instagram.com/el_42motos/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Ver publicaciones de El 42 Motos en Instagram"
+            >
+              <img
+                src="img/ig-1.jpg"
+                alt="Entrega El 42 Motos"
+                loading="lazy"
+              />
             </a>
-            <a class="ig-cell" href="https://www.instagram.com/el_42motos/" target="_blank" rel="noopener" aria-label="Ver publicaciones de El 42 Motos en Instagram">
-              <img src="img/ig-2.jpg" alt="Entrega El 42 Motos" loading="lazy" />
+            <a
+              class="ig-cell"
+              href="https://www.instagram.com/el_42motos/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Ver publicaciones de El 42 Motos en Instagram"
+            >
+              <img
+                src="img/ig-2.jpg"
+                alt="Entrega El 42 Motos"
+                loading="lazy"
+              />
             </a>
-            <a class="ig-cell" href="https://www.instagram.com/el_42motos/" target="_blank" rel="noopener" aria-label="Ver publicaciones de El 42 Motos en Instagram">
-              <img src="img/ig-3.jpg" alt="Entrega El 42 Motos" loading="lazy" />
+            <a
+              class="ig-cell"
+              href="https://www.instagram.com/el_42motos/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Ver publicaciones de El 42 Motos en Instagram"
+            >
+              <img
+                src="img/ig-3.jpg"
+                alt="Entrega El 42 Motos"
+                loading="lazy"
+              />
             </a>
-            <a class="ig-cell" href="https://www.instagram.com/el_42motos/" target="_blank" rel="noopener" aria-label="Ver publicaciones de El 42 Motos en Instagram">
-              <img src="img/ig-4.jpg" alt="Entrega El 42 Motos" loading="lazy" />
+            <a
+              class="ig-cell"
+              href="https://www.instagram.com/el_42motos/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Ver publicaciones de El 42 Motos en Instagram"
+            >
+              <img
+                src="img/ig-4.jpg"
+                alt="Entrega El 42 Motos"
+                loading="lazy"
+              />
             </a>
           </div>
 
           <div class="section__foot">
-            <a href="https://www.instagram.com/el_42motos/" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">
-              Seguir @el_42motos en Instagram
+            <!-- Estilos específicos para el botón de Instagram -->
+            <style>
+              .btn-instagram {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #0095f6; /* Azul oficial de botón de Instagram */
+                color: #ffffff !important; /* Texto blanco fijo */
+                font-weight: 600;
+                font-size: 14px;
+                padding: 10px 24px;
+                border-radius: 8px; /* Bordes redondeados nativos */
+                text-decoration: none;
+                transition: background-color 0.2s ease;
+                font-family:
+                  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                  Helvetica, Arial, sans-serif;
+              }
+
+              /* Efecto al pasar el mouse (azul más oscuro) */
+              .btn-instagram:hover {
+                background-color: #1877f2;
+              }
+
+              /* Alineación y separación del logo oficial */
+              .btn-instagram svg {
+                margin-right: 8px;
+                width: 18px;
+                height: 18px;
+                fill: currentColor; /* Hace que el logo sea blanco como el texto */
+              }
+            </style>
+
+            <!-- Botón con el logo oficial -->
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener"
+              class="btn-instagram"
+            >
+              <!-- Logo Oficial de Instagram -->
+              <svg xmlns="http://w3.org" viewBox="0 0 16 16">
+                <path
+                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.444-.048-3.298c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.704-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                />
+              </svg>
+              Seguir a @el_42motos
             </a>
           </div>
         </div>
@@ -1427,11 +2281,23 @@
       <section class="cta-final">
         <div class="cta-final__bg" aria-hidden="true"></div>
         <div class="container cta-final__inner">
-          <h2 class="cta-final__title">Escribinos y encontrá <span class="hl">tu próxima moto</span></h2>
-          <p class="cta-final__sub">Subite, arrancá y salí andando. Te respondemos rápido por WhatsApp.</p>
-          <a href="#" class="btn btn--primary btn--xl js-wa"
-             data-wa-msg="¡Hola El 42! Quiero encontrar mi próxima moto y cotizar cuotas. ¿Me ayudan?">
-            <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z" fill="currentColor"/></svg>
+          <h2 class="cta-final__title">
+            Escribinos y encontrá <span class="hl">tu próxima moto</span>
+          </h2>
+          <p class="cta-final__sub">
+            Subite, arrancá y salí andando. Te respondemos rápido por WhatsApp.
+          </p>
+          <a
+            href="#"
+            class="btn btn--primary btn--xl js-wa"
+            data-wa-msg="¡Hola El 42! Quiero encontrar mi próxima moto y cotizar cuotas. ¿Me ayudan?"
+          >
+            <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"
+                fill="currentColor"
+              />
+            </svg>
             Consultar por WhatsApp
           </a>
         </div>
@@ -1442,8 +2308,18 @@
     <footer class="footer">
       <div class="container footer__inner">
         <div class="footer__brand">
-          <img src="img/logo.png" alt="El 42 Motos" class="footer__logo" width="804" height="697" />
-          <p>Tu próxima moto está en El 42.<br /><span>Motos 0km, usadas y financiación.</span></p>
+          <img
+            src="img/logo.png"
+            alt="El 42 Motos"
+            class="footer__logo"
+            width="804"
+            height="697"
+          />
+          <p>
+            Tu próxima moto está en El 42.<br /><span
+              >Motos 0km, usadas y financiación.</span
+            >
+          </p>
         </div>
         <nav class="footer__nav" aria-label="Footer">
           <a href="#motos">Motos</a>
@@ -1453,25 +2329,60 @@
           <a href="#ubicaciones">Sucursales</a>
         </nav>
         <div class="footer__contact">
-          <a href="#" class="btn btn--primary btn--sm js-wa" data-wa-msg="¡Hola El 42! Quiero hacer una consulta.">
-            <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z" fill="currentColor"/></svg>
+          <a
+            href="#"
+            class="btn btn--primary btn--sm js-wa"
+            data-wa-msg="¡Hola El 42! Quiero hacer una consulta."
+          >
+            <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"
+                fill="currentColor"
+              />
+            </svg>
             Escribinos por WhatsApp
           </a>
-          <a href="https://www.instagram.com/el_42motos/" target="_blank" rel="noopener" class="footer__ig">@el_42motos</a>
+          <a
+            href="https://www.instagram.com/el_42motos/"
+            target="_blank"
+            rel="noopener"
+            class="footer__ig"
+            >@el_42motos</a
+          >
         </div>
       </div>
       <div class="footer__bottom container">
-        <span>© <span id="year">2025</span> El 42 Motos · Arrecifes &amp; Capitán Sarmiento</span>
-        <a href="https://wa.me/5493329627578?text=%C2%A1Hola%20Potenciapp!%20Quiero%20consultar%20sobre%20el%20desarrollo%20web." target="_blank" rel="noopener noreferrer" class="credit-link">
-          <span class="credit-link__emoji">📞</span> Contactar programador<span class="credit-link__dot">.</span>
+        <span
+          >© <span id="year">2025</span> El 42 Motos · Arrecifes &amp; Capitán
+          Sarmiento</span
+        >
+        <a
+          href="https://wa.me/5493329627578?text=%C2%A1Hola%20Potenciapp!%20Quiero%20consultar%20sobre%20el%20desarrollo%20web."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="credit-link"
+        >
+          <span class="credit-link__emoji">📞</span> Contactar programador<span
+            class="credit-link__dot"
+            >.</span
+          >
         </a>
       </div>
     </footer>
 
     <!-- ============ BARRA STICKY WHATSAPP (mobile) ============ -->
     <div class="mobile-cta" aria-hidden="false">
-      <a href="#" class="btn mobile-cta__btn js-wa" data-wa-msg="¡Hola El 42! Quiero consultar por una moto.">
-        <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z" fill="currentColor"/></svg>
+      <a
+        href="#"
+        class="btn mobile-cta__btn js-wa"
+        data-wa-msg="¡Hola El 42! Quiero consultar por una moto."
+      >
+        <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"
+            fill="currentColor"
+          />
+        </svg>
         Consultar por WhatsApp
       </a>
     </div>
@@ -1479,10 +2390,34 @@
     <!-- ============ WA WIDGET / LIGHTBOX ============ -->
     <div id="waWidget" aria-label="Chat de WhatsApp"></div>
 
-    <div class="gallery-overlay" id="galleryOverlay" role="dialog" aria-modal="true" aria-label="Galería de imágenes">
-      <button class="gallery-close" id="galleryClose" aria-label="Cerrar galería">&times;</button>
-      <button class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Anterior">&lsaquo;</button>
-      <button class="gallery-nav gallery-next" id="galleryNext" aria-label="Siguiente">&rsaquo;</button>
+    <div
+      class="gallery-overlay"
+      id="galleryOverlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Galería de imágenes"
+    >
+      <button
+        class="gallery-close"
+        id="galleryClose"
+        aria-label="Cerrar galería"
+      >
+        &times;
+      </button>
+      <button
+        class="gallery-nav gallery-prev"
+        id="galleryPrev"
+        aria-label="Anterior"
+      >
+        &lsaquo;
+      </button>
+      <button
+        class="gallery-nav gallery-next"
+        id="galleryNext"
+        aria-label="Siguiente"
+      >
+        &rsaquo;
+      </button>
       <div class="gallery-content">
         <img class="gallery-img" id="galleryImg" src="" alt="" />
         <div class="gallery-counter" id="galleryCounter"></div>
@@ -1498,61 +2433,67 @@
     <script src="js/main.js"></script>
 
     <script>
-    /* ============================================================
+      /* ============================================================
        SCRIPTS INLINE — solo carga inicial
        (el resto está en js/main.js)
     ============================================================ */
 
-    // Año en footer
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+      // Año en footer
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // ── WhatsApp links ────────────────────────────────────────────
-    // IMPORTANTE: Reemplazá PHONE_NUMBER con el número real de WhatsApp
-    // sin + ni espacios. Ej: 5492478461332
-    const WA_NUMBER = '5492478461332'; // ← reemplazá con tu número
+      // ── WhatsApp links ────────────────────────────────────────────
+      // IMPORTANTE: Reemplazá PHONE_NUMBER con el número real de WhatsApp
+      // sin + ni espacios. Ej: 5492478461332
+      const WA_NUMBER = "5492478461332"; // ← reemplazá con tu número
 
-    document.querySelectorAll('.js-wa').forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.preventDefault();
-        const msg = encodeURIComponent(btn.dataset.waMsg || '¡Hola El 42!');
-        window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank', 'noopener');
-      });
-    });
-
-    // ── Marquee: ajuste dinámico ─────────────────────────────────
-    // La animación CSS ya maneja el loop. Este script solo garantiza
-    // que el track tenga exactamente 2× el número original de ítems.
-    // (Si el JS de Supabase inyecta más imágenes, deberá duplicarlas él.)
-
-    // ── Filtros de motos ─────────────────────────────────────────
-    document.querySelectorAll('.filter').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter').forEach(b => {
-          b.classList.remove('is-active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('is-active');
-        btn.setAttribute('aria-pressed', 'true');
-
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('#motoGrid [data-condition]').forEach(card => {
-          const show = filter === 'all' || card.dataset.condition === filter;
-          card.style.display = show ? '' : 'none';
+      document.querySelectorAll(".js-wa").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const msg = encodeURIComponent(btn.dataset.waMsg || "¡Hola El 42!");
+          window.open(
+            `https://wa.me/${WA_NUMBER}?text=${msg}`,
+            "_blank",
+            "noopener",
+          );
         });
       });
-    });
 
-    // ── Lightbox: cerrar con Escape ───────────────────────────────
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        document.getElementById('galleryOverlay').classList.remove('is-open');
-      }
-    });
-    document.getElementById('galleryClose').addEventListener('click', () => {
-      document.getElementById('galleryOverlay').classList.remove('is-open');
-    });
+      // ── Marquee: ajuste dinámico ─────────────────────────────────
+      // La animación CSS ya maneja el loop. Este script solo garantiza
+      // que el track tenga exactamente 2× el número original de ítems.
+      // (Si el JS de Supabase inyecta más imágenes, deberá duplicarlas él.)
+
+      // ── Filtros de motos ─────────────────────────────────────────
+      document.querySelectorAll(".filter").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".filter").forEach((b) => {
+            b.classList.remove("is-active");
+            b.setAttribute("aria-pressed", "false");
+          });
+          btn.classList.add("is-active");
+          btn.setAttribute("aria-pressed", "true");
+
+          const filter = btn.dataset.filter;
+          document
+            .querySelectorAll("#motoGrid [data-condition]")
+            .forEach((card) => {
+              const show =
+                filter === "all" || card.dataset.condition === filter;
+              card.style.display = show ? "" : "none";
+            });
+        });
+      });
+
+      // ── Lightbox: cerrar con Escape ───────────────────────────────
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.getElementById("galleryOverlay").classList.remove("is-open");
+        }
+      });
+      document.getElementById("galleryClose").addEventListener("click", () => {
+        document.getElementById("galleryOverlay").classList.remove("is-open");
+      });
     </script>
   </body>
 </html>
-
