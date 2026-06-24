@@ -300,7 +300,7 @@ function updateFinanceSummary(data) {
 
 function initQuoteCalculator() {
   if (!FINANCE_CONFIG) return;
-  var motosConPrecio = MOTOS.filter(function (m) { return Number.isFinite(Number(m.precio)); });
+  var motosConPrecio = MOTOS.filter(function (m) { var p = Number(m.precio); return Number.isFinite(p) && p > 0; });
   if (!motosConPrecio.length) return;
 
   var selectedMotoIdx = -1;
@@ -337,16 +337,16 @@ function initQuoteCalculator() {
 
   function toggleDropdown(e) {
     e.stopPropagation();
-    var isOpen = dropdown.classList.contains("is-open");
+    var isOpen = csSelect.classList.contains("is-open");
     closeDropdown();
     if (!isOpen) {
-      dropdown.classList.add("is-open");
+      csSelect.classList.add("is-open");
       trigger.classList.add("is-open");
     }
   }
 
   function closeDropdown() {
-    dropdown.classList.remove("is-open");
+    csSelect.classList.remove("is-open");
     trigger.classList.remove("is-open");
   }
 
@@ -719,42 +719,88 @@ function initWhatsApp() {
   });
 }
 
+/* ---- Mobile navigation ---- */
+function initializeMobileNavigation() {
+  var toggle = document.getElementById("navToggle");
+  var menu = document.getElementById("navMobile");
+
+  if (!toggle || !menu) {
+    console.error("No se encontró #navToggle o #navMobile");
+    return;
+  }
+
+  if (toggle.dataset.initialized === "true") {
+    return;
+  }
+
+  toggle.dataset.initialized = "true";
+
+  var setMenuState = function (isOpen) {
+    menu.classList.toggle("is-open", isOpen);
+    toggle.classList.toggle("is-open", isOpen);
+    document.body.classList.toggle("nav-open", isOpen);
+
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute(
+      "aria-label",
+      isOpen ? "Cerrar menú" : "Abrir menú"
+    );
+  };
+
+  var closeMenu = function () {
+    setMenuState(false);
+  };
+
+  toggle.addEventListener("click", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    var isCurrentlyOpen = menu.classList.contains("is-open");
+    setMenuState(!isCurrentlyOpen);
+  });
+
+  menu.querySelectorAll(".nav-mobile__link").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+
+  document.addEventListener("click", function (event) {
+    var clickedInsideMenu = menu.contains(event.target);
+    var clickedToggle = toggle.contains(event.target);
+
+    if (
+      menu.classList.contains("is-open") &&
+      !clickedInsideMenu &&
+      !clickedToggle
+    ) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 700) {
+      closeMenu();
+    }
+  });
+}
+
 /* ---- HEADER (glassmorphism) ---- */
 function initHeader() {
   var header = document.getElementById("header");
-  var toggle = document.getElementById("navToggle");
-  var navMobile = document.getElementById("navMobile");
-  if (!header || !toggle || !navMobile) return;
+  if (!header) return;
 
   /* Scroll state */
   var onScroll = function () { header.classList.toggle("is-scrolled", window.scrollY > 20); };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* Toggle mobile menu */
-  var toggleMenu = function (open) {
-    var isOpen = open !== undefined ? open : !navMobile.classList.contains("is-open");
-    navMobile.classList.toggle("is-open", isOpen);
-    toggle.classList.toggle("is-open", isOpen);
-    document.body.classList.toggle("nav-open", isOpen);
-    toggle.setAttribute("aria-expanded", String(isOpen));
-    toggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
-  };
-  toggle.addEventListener("click", function () { toggleMenu(); });
-
-  /* Close on link click (mobile) */
-  navMobile.querySelectorAll("a").forEach(function (a) {
-    a.addEventListener("click", function () { toggleMenu(false); });
-  });
-
-  /* Close on Escape */
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && navMobile.classList.contains("is-open")) toggleMenu(false);
-  });
-
-  /* Close on resize to desktop */
-  var mq = window.matchMedia("(min-width: 1024px)");
-  mq.addEventListener("change", function () { if (mq.matches) toggleMenu(false); });
+  initializeMobileNavigation();
 
   /* ---- Active section tracking ---- */
   var sections = ["motos", "como-compras", "cotizador", "contacto", "usados", "ubicaciones"];
@@ -859,18 +905,6 @@ function initParallax() {
   }, { passive: true });
 }
 
-/* ---- MARQUEE PAUSE ---- */
-function initMarqueePause() {
-  var track = document.getElementById("brandsTrack");
-  if (!track) return;
-  var pause = function () { track.classList.add("is-paused"); };
-  var resume = function () { track.classList.remove("is-paused"); };
-  track.addEventListener("mouseenter", pause);
-  track.addEventListener("mouseleave", resume);
-  track.addEventListener("touchstart", pause);
-  track.addEventListener("touchend", resume);
-}
-
 /* ---- COUNTER BUMP ---- */
 function initCounterBump() {
   var targets = document.querySelectorAll(
@@ -895,15 +929,27 @@ function initHeroCarousel() {
   var container = document.getElementById("heroCarousel");
   if (!container) return;
 
-  var slides = [{ url: "img/hero.jpg" }];
-  var seen = {};
-  for (var i = 0; i < MOTOS.length && slides.length < 7; i++) {
-    var img = MOTOS[i].img;
-    if (img && !seen[img]) { seen[img] = true; slides.push({ url: img }); }
-  }
+  var heroImages = [
+    "img/moto-yamaha125.jpg",
+    "img/moto-xtz125.jpg",
+    "img/moto-wave.jpg",
+    "img/moto-styler.jpg",
+    "img/moto-smx200.jpg",
+    "img/moto-smash.jpg",
+    "img/moto-navi.jpg",
+    "img/moto-mondial250.jpg",
+    "img/moto-miracle150.jpg",
+    "img/moto-keeway.jpg",
+    "img/moto-ika.jpg",
+    "img/moto-gsxs750.jpg",
+    "img/moto-crono.jpg",
+    "img/moto-smashbase.jpg"
+  ];
+
+  var slides = heroImages.slice(0, 8);
 
   container.innerHTML = slides.map(function (s, i) {
-    return '<div class="hero__slide' + (i === 0 ? " is-active" : "") + '" style="background-image:url(\'' + s.url + '\')"></div>';
+    return '<div class="hero__slide' + (i === 0 ? " is-active" : "") + '" style="background-image:url(\'' + s + '\')"></div>';
   }).join("");
 
   var idx = 0;
@@ -1073,38 +1119,6 @@ function initScrollProgress() {
   }, { passive: true });
 }
 
-/* ---- 2. Text Reveal (char by char) ---- */
-function initTextReveal() {
-  var titles = document.querySelectorAll(".section__title, .hero__title");
-  if (!titles.length) return;
-
-  titles.forEach(function (el) {
-    el.classList.add("txt-reveal");
-    var text = el.textContent;
-    var html = "";
-    for (var i = 0; i < text.length; i++) {
-      var ch = text[i] === " " ? " " : text[i];
-      html += '<span class="char" style="transition-delay:' + (i * 0.025) + 's">' + ch + "</span>";
-    }
-    el.innerHTML = html;
-
-    if ("IntersectionObserver" in window) {
-      var once = false;
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting && !once) {
-            once = true;
-            el.classList.add("is-visible");
-            io.unobserve(el);
-          }
-        });
-      }, { threshold: 0.3 });
-      io.observe(el);
-    } else {
-      el.classList.add("is-visible");
-    }
-  });
-}
 
 /* ---- 3. Border Trail ---- */
 function initBorderTrail() {
@@ -1114,22 +1128,22 @@ function initBorderTrail() {
 
 /* ---- 4. Spotlight (mouse follower glow) ---- */
 function initSpotlight() {
-  var hero = document.querySelector(".hero__bg");
+  var hero = document.querySelector(".hero");
   if (!hero) return;
-  var overlay = document.createElement("div");
-  overlay.className = "spotlight-overlay";
-  hero.parentNode.insertBefore(overlay, hero.nextSibling);
-  hero.classList.add("has-spotlight");
-
+  var overlay = hero.querySelector(".spotlight-overlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "spotlight-overlay";
+    hero.insertBefore(overlay, hero.querySelector(".hero__inner"));
+  }
   var ticking = false;
-  hero.parentNode.addEventListener("mousemove", function (e) {
+  hero.addEventListener("mousemove", function (e) {
     if (!ticking) {
       window.requestAnimationFrame(function () {
-        var rect = hero.parentNode.getBoundingClientRect();
+        var rect = hero.getBoundingClientRect();
         var x = ((e.clientX - rect.left) / rect.width) * 100;
         var y = ((e.clientY - rect.top) / rect.height) * 100;
-        overlay.style.setProperty("--sx", x + "%");
-        overlay.style.setProperty("--sy", y + "%");
+        overlay.style.background = "radial-gradient(700px circle at " + x + "% " + y + "%, rgba(242,230,0,.08), transparent 50%)";
         ticking = false;
       });
       ticking = true;
@@ -1153,6 +1167,7 @@ function initAnimatedBg() {
 document.addEventListener("DOMContentLoaded", async function () {
   await loadData();
   await loadPromos();
+
   renderMotos();
   initHeroCarousel();
   initQuoteCalculator();
@@ -1162,15 +1177,17 @@ document.addEventListener("DOMContentLoaded", async function () {
   initHeader();
   initReveal();
   initParallax();
-  initMarqueePause();
   initCounterBump();
   initFloatingWhatsApp();
   initScrollProgress();
-  initTextReveal();
   initBorderTrail();
   initSpotlight();
   initAnimatedBg();
   initGallery();
+
   var y = document.getElementById("year");
-  if (y) y.textContent = new Date().getFullYear();
+
+  if (y) {
+    y.textContent = new Date().getFullYear();
+  }
 });
