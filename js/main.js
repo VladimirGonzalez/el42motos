@@ -916,6 +916,141 @@ function initHeroCarousel() {
   }, 5000);
 }
 
+/* ---- WHATSAPP INTERACTIVO FLOTANTE ---- */
+function initFloatingWhatsApp() {
+  var widget = document.getElementById("waWidget");
+  if (!widget) return;
+  var open = false;
+  var teaserTimer = null;
+  var userName = "";
+
+  var PHONE = CONFIG.whatsapp;
+  var wa = function (text) { return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text); };
+  var nameOr = function () { return userName.trim() || "Ahí"; };
+
+  /* ---- Build HTML ---- */
+  widget.innerHTML =
+    '<div class="wa-chat" id="waChat">' +
+      '<div class="wa-chat__head">' +
+        '<div class="wa-chat__avatar">42</div>' +
+        '<div class="wa-chat__info">' +
+          '<div class="wa-chat__name">El 42 Motos</div>' +
+          '<div class="wa-chat__status"><span class="wa-chat__status-dot"></span> En línea · respondemos rápido</div>' +
+        '</div>' +
+        '<button class="wa-chat__close" id="waChatClose" aria-label="Cerrar chat">&times;</button>' +
+      '</div>' +
+      '<div class="wa-chat__body">' +
+        '<div class="wa-chat__bubble">¡Hola! 👋 Soy <strong>El 42</strong>. Decime tu nombre y elegí una opción, seguimos por WhatsApp 💬</div>' +
+        '<input class="wa-chat__name-input" id="waNameInput" type="text" placeholder="Tu nombre..." maxlength="40" />' +
+        '<div class="wa-chat__replies">' +
+          '<a class="wa-chat__reply" data-wa-msg="¡Hola El 42! Quiero ver las motos 0km disponibles.">🏍️ Ver motos 0km</a>' +
+          '<a class="wa-chat__reply" data-wa-msg="¡Hola El 42! Quiero consultar por una moto usada.">🔄 Usadas seleccionadas</a>' +
+          '<a class="wa-chat__reply" data-wa-msg="¡Hola El 42! Quiero simular cuotas para una moto.">💰 Simular cuotas</a>' +
+          '<a class="wa-chat__reply" data-wa-msg="¡Hola El 42! Quiero entregar mi usado como parte de pago.">🤝 Tomar mi usado</a>' +
+          '<a class="wa-chat__reply" data-wa-msg="¡Hola El 42! Quiero hacer una consulta.">💬 Otra consulta</a>' +
+        '</div>' +
+      '</div>' +
+      '<div class="wa-chat__footer">' +
+        '<a href="#" id="waOpenBtn" target="_blank" rel="noopener">' +
+          '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"/></svg>' +
+          'Abrir WhatsApp' +
+        '</a>' +
+      '</div>' +
+    '</div>' +
+    '<div class="wa-teaser" id="waTeaser">' +
+      '<button class="wa-teaser__close" id="waTeaserClose" aria-label="Cerrar aviso">&times;</button>' +
+      '<div class="wa-teaser__text">👋 ¡Hola! ¿Buscás tu próxima moto?</div>' +
+    '</div>' +
+    '<button class="wa-fab" id="waFab" aria-label="Abrir chat de WhatsApp">' +
+      '<span class="wa-fab__pulse"></span>' +
+      '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.2 1.26-1.97 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.39-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.24-.27.64-.39.99-.39.12 0 .23 0 .33.01.29.01.43.03.62.48.24.56.81 1.96.88 2.1.07.14.12.31.02.51-.09.2-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.61.76 1.88.9.27.14.46.2.52.31.07.11.07.62-.17 1.29z"/></svg>' +
+      '<span id="waFabLabel">Chateá con nosotros</span>' +
+    '</button>';
+
+  var chat = document.getElementById("waChat");
+  var fab = document.getElementById("waFab");
+  var teaser = document.getElementById("waTeaser");
+  var nameInput = document.getElementById("waNameInput");
+  var closeBtn = document.getElementById("waChatClose");
+  var openBtn = document.getElementById("waOpenBtn");
+  var teaserClose = document.getElementById("waTeaserClose");
+  var fabLabel = document.getElementById("waFabLabel");
+
+  /* ---- Proactive teaser (once per session) ---- */
+  if (!sessionStorage.getItem("el42_wa_teaser")) {
+    teaserTimer = setTimeout(function () {
+      teaser.classList.add("is-visible");
+    }, 7000);
+  }
+
+  var dismissTeaser = function () {
+    teaser.classList.remove("is-visible");
+    sessionStorage.setItem("el42_wa_teaser", "1");
+    if (teaserTimer) { clearTimeout(teaserTimer); teaserTimer = null; }
+  };
+
+  var openChat = function () {
+    open = true;
+    chat.classList.add("is-open");
+    fabLabel.textContent = "Cerrar";
+    dismissTeaser();
+  };
+  var closeChat = function () {
+    open = false;
+    chat.classList.remove("is-open");
+    fabLabel.textContent = "Chateá con nosotros";
+  };
+  var toggleChat = function () {
+    if (open) closeChat(); else openChat();
+  };
+
+  /* ---- Events ---- */
+  fab.addEventListener("click", toggleChat);
+  closeBtn.addEventListener("click", closeChat);
+  teaser.addEventListener("click", function (e) { if (!e.target.closest(".wa-teaser__close")) openChat(); });
+  teaserClose.addEventListener("click", function (e) { e.stopPropagation(); dismissTeaser(); });
+
+  /* ---- Name input sync ---- */
+  nameInput.addEventListener("input", function () {
+    userName = nameInput.value;
+  });
+
+  /* ---- Quick replies set name in msg ---- */
+  var replies = chat.querySelectorAll(".wa-chat__reply");
+  replies.forEach(function (r) {
+    r.addEventListener("click", function (e) {
+      var msg = r.getAttribute("data-wa-msg");
+      var finalMsg = "¡Hola! Soy " + nameOr() + ". " + msg;
+      r.setAttribute("href", wa(finalMsg));
+      r.setAttribute("target", "_blank");
+      r.setAttribute("rel", "noopener");
+    });
+  });
+
+  /* ---- Open WhatsApp button ---- */
+  openBtn.addEventListener("click", function () {
+    var msg = "¡Hola El 42! Soy " + nameOr() + ". Quiero consultar por una moto.";
+    openBtn.setAttribute("href", wa(msg));
+  });
+
+  /* ---- Close on click outside ---- */
+  document.addEventListener("mousedown", function (e) {
+    if (open && !widget.contains(e.target)) closeChat();
+  });
+
+  /* ---- Close on Escape ---- */
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && open) closeChat();
+  });
+
+  /* ---- Track event on any wa click ---- */
+  chat.addEventListener("click", function (e) {
+    var link = e.target.closest("a[href*='wa.me']");
+    if (!link) return;
+    trackEvent("consulta_flotante", { mensaje: link.getAttribute("href") || "" });
+  });
+}
+
 /* ---- INIT ---- */
 document.addEventListener("DOMContentLoaded", async function () {
   await loadData();
@@ -931,6 +1066,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   initParallax();
   initMarqueePause();
   initCounterBump();
+  initFloatingWhatsApp();
   initGallery();
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
