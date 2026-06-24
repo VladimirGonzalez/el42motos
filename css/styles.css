@@ -3351,6 +3351,17 @@ body.nav-open { overflow: hidden; }
     font-size: clamp(3rem, 10vw, 4.7rem);
     line-height: 0.95;
   }
+
+  .contact-copy {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-copy__eyebrow {
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3469,7 +3480,7 @@ body.nav-open { overflow: hidden; }
 }
 
 @media (max-width: 580px) {
-  .cs-result-grid { grid-template-columns: 1fr 1fr; }
+  .cs-result-grid { grid-template-columns: 1fr; }
   .lead-form__grid { grid-template-columns: 1fr; }
   .plan-btn { min-width: 60px; padding: 10px 10px; font-size: .78rem; }
   .cs-trigger { min-height: 48px; }
