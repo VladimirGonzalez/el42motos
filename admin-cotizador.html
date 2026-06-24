@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — El 42 Motos</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body { padding: 0; background: #0a0a0a; }
+    .admin-wrap { width: min(100% - 24px, 1300px); margin: auto; padding: 32px 0 60px; }
+
+    /* LOGIN (igual que antes) */
+    #loginView { display: flex; align-items: center; justify-content: center; min-height: 100dvh; }
+    .login-card { background: var(--card); border: 1px solid var(--border-strong); border-radius: var(--radius-lg); padding: 40px; width: min(100% - 32px, 420px); box-shadow: var(--shadow-card); }
+    .login-card h1 { font-family: var(--font-heading); font-size: 2.4rem; text-transform: uppercase; letter-spacing: .02em; line-height: 1; }
+    .login-card p { color: var(--color-muted); margin: 10px 0 24px; }
+    .login-field { display: grid; gap: 7px; margin-bottom: 14px; }
+    .login-field span { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: #cfd2d3; font-weight: 800; }
+    .login-field input { min-height: 50px; border: 1px solid var(--border-strong); border-radius: 14px; background: #090c0c; color: #fff; padding: 0 14px; font: 700 1rem var(--font-body); outline: none; }
+    .login-field input:focus { border-color: var(--color-secondary); }
+    .login-error { color: #ff6b6b; font-size: .9rem; margin-top: 10px; }
+    .login-switch { text-align: center; margin-top: 16px; color: var(--color-muted); font-size: .88rem; }
+    .login-switch a { color: var(--color-secondary); cursor: pointer; text-decoration: underline; }
+    .login-card .btn--primary { width: 100%; }
+    .login-note { margin-top: 14px; padding: 12px; border-radius: var(--radius-sm); background: rgba(242,230,0,.08); border: 1px solid rgba(242,230,0,.2); font-size: .82rem; color: #d4d7d8; line-height: 1.45; }
+
+    /* HEADER */
+    .admin-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+    .admin-header h1 { font-family: var(--font-heading); font-size: 2rem; text-transform: uppercase; letter-spacing: .02em; line-height: 1; }
+    .admin-header h1 small { font-size: .9rem; color: var(--color-muted); font-family: var(--font-body); font-weight: 600; text-transform: none; letter-spacing: 0; }
+    .admin-user { display: flex; align-items: center; gap: 12px; color: var(--color-muted); font-size: .88rem; flex-wrap: wrap; }
+
+    /* TABS */
+    .admin-tabs { display: flex; gap: 0; margin-bottom: 20px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+    .admin-tab { padding: 11px 20px; font-weight: 700; font-size: .88rem; color: var(--color-muted); cursor: pointer; border-bottom: 3px solid transparent; transition: all .2s; white-space: nowrap; }
+    .admin-tab:hover { color: #fff; }
+    .admin-tab.is-active { color: var(--color-primary); border-bottom-color: var(--color-primary); }
+    .admin-tab-content { display: none; }
+    .admin-tab-content.is-active { display: block; }
+
+    /* TABLE MOTOS */
+    .admin-table-wrap { overflow-x: auto; }
+    .admin-table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+    .admin-table th { text-align: left; padding: 8px 10px; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--color-muted); border-bottom: 1px solid var(--border); font-weight: 800; white-space: nowrap; }
+    .admin-table td { padding: 6px 10px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .admin-table tr:hover td { background: rgba(255,255,255,.02); }
+    .admin-table input, .admin-table select { width: 100%; min-height: 34px; border: 1px solid var(--border); border-radius: 8px; background: #090c0c; color: #fff; padding: 0 8px; font: 600 .82rem var(--font-body); outline: none; }
+    .admin-table input:focus, .admin-table select:focus { border-color: var(--color-secondary); }
+    .admin-table input[type="number"] { max-width: 110px; }
+    .admin-table input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--color-primary); cursor: pointer; min-height: auto; }
+    .admin-table .col-img input { min-width: 140px; font-size: .76rem; }
+    .btn-xs { padding: 5px 10px; font-size: .74rem; white-space: nowrap; min-height: 30px !important; }
+    .btn-danger { background: #e63946; color: #fff; }
+    .btn-danger:hover { background: #c1121f; }
+    .btn-outline { background: transparent; color: #cfd2d3; border: 1px solid var(--border-strong); }
+    .btn-outline:hover { border-color: var(--color-secondary); color: #fff; }
+    .btn-success { background: #25D366; color: #04210f; }
+    .btn-success:hover { background: #1fc35d; }
+    .btn-warning { background: #F2E600; color: #111; }
+    .btn-warning:hover { background: #e6d900; }
+    .admin-actions-bar { display: flex; gap: 8px; margin: 12px 0; flex-wrap: wrap; align-items: center; }
+    .cell-actions { display: flex; gap: 4px; flex-wrap: nowrap; align-items: center; }
+
+    /* TOAST */
+    .toast { position: fixed; right: 16px; bottom: 16px; z-index: 999; padding: 14px 20px; border-radius: var(--radius-md); font-weight: 700; font-size: .88rem; box-shadow: 0 8px 30px rgba(0,0,0,.5); transform: translateY(20px); opacity: 0; transition: all .3s ease; max-width: 360px; pointer-events: none; }
+    .toast.is-visible { transform: translateY(0); opacity: 1; }
+    .toast--success { background: #25D366; color: #04210f; }
+    .toast--error { background: #e63946; color: #fff; }
+
+    /* CONFIG */
+    .config-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; margin: 16px 0; }
+    .admin-field { display: grid; gap: 6px; }
+    .admin-field span { font-size: .74rem; text-transform: uppercase; letter-spacing: .08em; color: #cfd2d3; font-weight: 800; }
+    .admin-field input, .admin-field textarea { min-height: 40px; border: 1px solid var(--border-strong); border-radius: 12px; background: #090c0c; color: #fff; padding: 6px 10px; font: 700 .85rem var(--font-body); outline: none; }
+    .admin-field textarea { min-height: 80px; font-family: ui-monospace, monospace; font-size: .78rem; }
+    .admin-field input:focus { border-color: var(--color-secondary); }
+    .plans-table { display: grid; gap: 8px; margin: 10px 0; }
+    .plan-row { display: grid; grid-template-columns: 1fr 1fr 1.4fr auto; gap: 8px; align-items: end; }
+    .plan-row button { min-height: 40px; padding: 0 12px; border-radius: 12px; background: rgba(255,255,255,.06); color: #fff; font-weight: 700; border: 1px solid var(--border); cursor: pointer; }
+
+    /* PROMOS */
+    .promo-card { background: var(--card); border: 1px solid var(--border-strong); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 16px; }
+    .promo-card h3 { font-family: var(--font-heading); font-size: 1.6rem; text-transform: uppercase; }
+    .promo-preview { padding: 12px 16px; border-radius: var(--radius-md); font-weight: 700; text-align: center; margin: 12px 0; font-size: .92rem; }
+
+    /* EVENTOS */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px; text-align: center; }
+    .stat-card strong { display: block; font-family: var(--font-heading); font-size: 2rem; color: var(--color-primary); line-height: 1; }
+    .stat-card span { font-size: .78rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .event-log { max-height: 500px; overflow-y: auto; font-size: .82rem; }
+    .event-row { padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+    .event-row .ev-time { color: var(--color-muted); white-space: nowrap; font-size: .76rem; min-width: 80px; }
+    .event-row .ev-badge { font-size: .68rem; padding: 2px 8px; border-radius: var(--radius-pill); font-weight: 700; text-transform: uppercase; white-space: nowrap; }
+    .ev-badge--consulta_moto { background: rgba(27,179,242,.15); color: var(--color-secondary); }
+    .ev-badge--cotizacion { background: rgba(242,230,0,.15); color: var(--color-primary); }
+    .ev-badge--consulta_general { background: rgba(255,255,255,.1); color: #ccc; }
+
+    /* IMAGENES MODAL */
+    .modal-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,.85); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all .3s; }
+    .modal-overlay.is-open { opacity: 1; visibility: visible; }
+    .modal-box { background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: var(--radius-lg); padding: 24px; width: min(95vw, 700px); max-height: 85vh; overflow-y: auto; }
+    .modal-box h2 { font-family: var(--font-heading); font-size: 1.8rem; text-transform: uppercase; margin-bottom: 16px; }
+    .modal-close { float: right; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; }
+    .img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin: 12px 0; }
+    .img-item { position: relative; aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border); }
+    .img-item img { width: 100%; height: 100%; object-fit: cover; }
+    .img-item .img-del { position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; border-radius: 50%; background: rgba(0,0,0,.7); color: #fff; border: none; cursor: pointer; font-size: 1rem; display: grid; place-items: center; }
+
+    .upload-area { border: 2px dashed var(--border-strong); border-radius: var(--radius-md); padding: 30px; text-align: center; cursor: pointer; transition: border-color .2s; margin: 12px 0; }
+    .upload-area:hover { border-color: var(--color-secondary); }
+    .upload-area input[type="file"] { display: none; }
+    .upload-area p { color: var(--color-muted); font-weight: 700; }
+
+    @media (max-width: 800px) {
+      .admin-tab { padding: 10px 14px; font-size: .82rem; }
+      .admin-table { font-size: .78rem; }
+      .plan-row { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .cell-actions { flex-wrap: wrap; }
+    }
+    @media (max-width: 500px) {
+      .plan-row { grid-template-columns: 1fr; }
+      .config-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .admin-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- LOGIN -->
+  <div id="loginView">
+    <div class="login-card">
+      <h1>El 42 <span class="hl">Motos</span></h1>
+      <p>Panel de administración</p>
+      <form id="loginForm">
+        <label class="login-field"><span>Email</span><input type="email" id="loginEmail" required autocomplete="email" /></label>
+        <label class="login-field"><span>Contraseña</span><input type="password" id="loginPassword" required autocomplete="current-password" /></label>
+        <div class="login-error" id="loginError"></div>
+        <button type="submit" class="btn btn--primary btn--lg" id="loginBtn">Ingresar</button>
+      </form>
+      <div class="login-switch"><a id="showSignup">Crear cuenta de administrador</a></div>
+      <form id="signupForm" style="display:none">
+        <label class="login-field"><span>Email</span><input type="email" id="signupEmail" required /></label>
+        <label class="login-field"><span>Contraseña (mín. 6)</span><input type="password" id="signupPassword" required minlength="6" /></label>
+        <div class="login-error" id="signupError"></div>
+        <button type="submit" class="btn btn--primary btn--lg" id="signupBtn">Crear cuenta</button>
+        <div class="login-switch"><a id="showLogin">Ya tengo cuenta</a></div>
+      </form>
+      <div class="login-note">Cualquier usuario autenticado tiene acceso total por las políticas RLS configuradas.</div>
+    </div>
+  </div>
+
+  <!-- ADMIN -->
+  <div id="adminView" style="display:none">
+    <div class="admin-wrap">
+      <div class="admin-header">
+        <h1>El 42 <span class="hl">Motos</span> <small>· Admin</small></h1>
+        <div class="admin-user">
+          <span id="adminEmail"></span>
+          <button class="btn btn--ghost btn--xs" id="logoutBtn">Salir</button>
+          <a href="index.html" class="btn btn-outline btn-xs">Ver sitio</a>
+        </div>
+      </div>
+
+      <div class="admin-tabs">
+        <span class="admin-tab is-active" data-tab="motos">Motos</span>
+        <span class="admin-tab" data-tab="config">Financiación</span>
+        <span class="admin-tab" data-tab="promos">Promociones</span>
+        <span class="admin-tab" data-tab="leads">Leads</span>
+        <span class="admin-tab" data-tab="eventos">CRM</span>
+      </div>
+
+      <!-- TAB MOTOS -->
+      <div class="admin-tab-content is-active" id="tabMotos">
+        <p style="color:var(--color-muted);margin-bottom:12px;font-size:.88rem">
+          <strong>Destacada</strong> = aparece con badge celeste. <strong>Etiqueta</strong> = texto libre (ej: "Solo queda 1", "Usada"). <strong>Precio anterior</strong> = se tacha automáticamente.
+        </p>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Cond</th>
+                <th>Precio $</th>
+                <th>Precio texto</th>
+                <th>Antes $</th>
+                <th>Img</th>
+                <th>Ord</th>
+                <th>Disp</th>
+                <th>★</th>
+                <th>Etiqueta</th>
+                <th>Imágenes</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="motosTbody"></tbody>
+          </table>
+        </div>
+        <div class="admin-actions-bar">
+          <button class="btn btn--primary btn--sm" id="addMotoBtn">+ Agregar moto</button>
+          <button class="btn btn-outline btn-xs" id="refreshMotosBtn">Recargar</button>
+        </div>
+      </div>
+
+      <!-- TAB CONFIG -->
+      <div class="admin-tab-content" id="tabConfig">
+        <p style="color:var(--color-muted);margin-bottom:14px">Parámetros del cotizador online.</p>
+        <div class="config-grid">
+          <label class="admin-field"><span>Entrega mínima %</span><input type="number" id="cfgMinPct" step="any" /></label>
+          <label class="admin-field"><span>Entrega inicial %</span><input type="number" id="cfgDefaultPct" step="any" /></label>
+          <label class="admin-field"><span>Gasto adm. %</span><input type="number" id="cfgFeePct" step="any" /></label>
+          <label class="admin-field"><span>Gasto fijo $</span><input type="number" id="cfgFixedFee" step="any" /></label>
+          <label class="admin-field"><span>Redondeo</span><input type="number" id="cfgRounding" step="1" /></label>
+          <label class="admin-field"><span>Plan inicial</span><input type="number" id="cfgInitialPlan" step="1" /></label>
+        </div>
+        <h3 style="font-weight:800;margin:16px 0 8px">Planes</h3>
+        <div class="plans-table" id="plansContainer"></div>
+        <div class="admin-actions-bar"><button class="btn btn-outline btn-xs" id="addPlanBtn">+ Agregar plan</button></div>
+        <label class="admin-field" style="margin-top:14px"><span>Disclaimer</span><textarea id="cfgDisclaimer" rows="3"></textarea></label>
+        <div class="admin-actions-bar"><button class="btn btn--primary" id="saveConfigBtn">Guardar configuración</button></div>
+      </div>
+
+      <!-- TAB PROMOS -->
+      <div class="admin-tab-content" id="tabPromos">
+        <p style="color:var(--color-muted);margin-bottom:14px">El banner activo se muestra en la home arriba de todo.</p>
+        <div class="promo-card">
+          <h3>Banner activo</h3>
+          <div class="admin-actions-bar" style="margin:8px 0">
+            <label class="admin-field" style="flex:2"><span>Texto</span><input id="promoTexto" placeholder="Ej: 12 cuotas sin interés en toda la línea Gilera" /></label>
+            <label class="admin-field" style="flex:1"><span>Emoji</span><input id="promoEmoji" placeholder="🏍️" style="max-width:80px" /></label>
+            <label class="admin-field" style="flex:1"><span>Color de fondo</span><input id="promoColor" type="color" value="#F2E600" style="min-height:44px;padding:4px" /></label>
+          </div>
+          <div class="promo-preview" id="promoPreview" style="background:#F2E600;color:#111">🏍️ 12 cuotas sin interés en toda la línea Gilera</div>
+          <div class="admin-actions-bar">
+            <button class="btn btn--primary btn--sm" id="savePromoBtn">Guardar banner</button>
+            <button class="btn btn-danger btn-xs" id="disablePromoBtn">Desactivar banner</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB LEADS -->
+      <div class="admin-tab-content" id="tabLeads">
+        <p style="color:var(--color-muted);margin-bottom:14px">Personas que completaron el formulario de contacto en la web.</p>
+        <div class="admin-actions-bar">
+          <button class="btn btn-outline btn-xs" id="refreshLeadsBtn">Recargar</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Moto interés</th>
+                <th>Mensaje</th>
+              </tr>
+            </thead>
+            <tbody id="leadsTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB EVENTOS -->
+      <div class="admin-tab-content" id="tabEventos">
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card"><strong id="statTotal">0</strong><span>Total eventos</span></div>
+          <div class="stat-card"><strong id="statConsultas">0</strong><span>Consultas WhatsApp</span></div>
+          <div class="stat-card"><strong id="statCotizaciones">0</strong><span>Cotizaciones</span></div>
+        </div>
+        <div class="admin-actions-bar">
+          <button class="btn btn-outline btn-xs" id="refreshEventosBtn">Recargar</button>
+        </div>
+        <div class="event-log" id="eventLog"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL IMÁGENES -->
+  <div class="modal-overlay" id="imgModal">
+    <div class="modal-box">
+      <button class="modal-close" id="imgModalClose">&times;</button>
+      <h2>Imágenes: <span id="imgModalTitle"></span></h2>
+      <div class="img-grid" id="imgGrid"></div>
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/*" multiple />
+        <p>+ Hacé clic para subir imágenes</p>
+      </div>
+      <p style="color:var(--color-muted);font-size:.8rem;margin-top:8px">Formatos: JPG, PNG, WebP. Máx 5MB c/u. Se suben a Supabase Storage.</p>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/database.js"></script>
+
+  <script>
+    var sb = window.__SUPABASE__;
+    var $ = function (id) { return document.getElementById(id); };
+    var toastTimeout, currentUser = null, currentImgMotoId = null;
+
+    function toast(msg, type) {
+      var t = $('toast');
+      t.textContent = msg;
+      t.className = 'toast toast--' + type + ' is-visible';
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(function () { t.classList.remove('is-visible'); }, 3500);
+    }
+
+    function esc(s) { return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+    /* AUTH */
+    function showView(v) {
+      $('loginView').style.display = v === 'login' ? '' : 'none';
+      $('adminView').style.display = v === 'admin' ? '' : 'none';
+    }
+
+    function checkSession() {
+      var s = sb ? sb.auth.getSession() : null;
+      if (s && s.data && s.data.session) {
+        currentUser = s.data.session.user;
+        $('adminEmail').textContent = currentUser.email;
+        showView('admin');
+        loadMotos(); loadConfig(); loadPromosAdmin(); loadEventos();
+      }
+    }
+
+    sb && sb.auth.onAuthStateChange(function (ev, session) {
+      if (ev === 'SIGNED_IN' && session) {
+        currentUser = session.user;
+        $('adminEmail').textContent = currentUser.email;
+        showView('admin');
+        loadMotos(); loadConfig(); loadPromosAdmin(); loadLeads(); loadEventos();
+      } else if (ev === 'SIGNED_OUT') {
+        currentUser = null; showView('login');
+      }
+    });
+
+    $('loginForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      $('loginError').textContent = '';
+      $('loginBtn').textContent = 'Ingresando...';
+      var r = await sb.auth.signInWithPassword({ email: $('loginEmail').value.trim(), password: $('loginPassword').value });
+      if (r.error) $('loginError').textContent = r.error.message;
+      $('loginBtn').textContent = 'Ingresar';
+    });
+
+    $('signupForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      $('signupError').textContent = '';
+      $('signupBtn').textContent = 'Creando...';
+      var r = await sb.auth.signUp({ email: $('signupEmail').value.trim(), password: $('signupPassword').value });
+      if (r.error) $('signupError').textContent = r.error.message;
+      else toast('Cuenta creada. Revisá tu email.', 'success');
+      $('signupBtn').textContent = 'Crear cuenta';
+    });
+
+    $('showSignup').onclick = function () { $('loginForm').style.display = 'none'; $('signupForm').style.display = ''; };
+    $('showLogin').onclick = function () { $('signupForm').style.display = 'none'; $('loginForm').style.display = ''; };
+    $('logoutBtn').onclick = function () { sb.auth.signOut(); };
+
+    /* TABS */
+    document.querySelectorAll('.admin-tab').forEach(function (t) {
+      t.addEventListener('click', function () {
+        document.querySelectorAll('.admin-tab').forEach(function (x) { x.classList.remove('is-active'); });
+        document.querySelectorAll('.admin-tab-content').forEach(function (x) { x.classList.remove('is-active'); });
+        t.classList.add('is-active');
+        $('tab' + t.dataset.tab.charAt(0).toUpperCase() + t.dataset.tab.slice(1)).classList.add('is-active');
+      });
+    });
+
+    /* MOTOS */
+    var allMotos = [];
+
+    function renderMotoRow(m) {
+      var id = m.id || '';
+      return '<tr data-id="' + id + '">' +
+        '<td class="col-nombre"><input class="f-nombre" value="' + esc(m.nombre) + '" /></td>' +
+        '<td><select class="f-condicion"><option value="0km"' + (m.condicion === '0km' ? ' selected' : '') + '>0km</option><option value="usada"' + (m.condicion === 'usada' ? ' selected' : '') + '>Usada</option></select></td>' +
+        '<td><input class="f-precio" type="number" step="1000" value="' + (m.precio || '') + '" /></td>' +
+        '<td><input class="f-precio-texto" value="' + esc(m.precio_texto || '') + '" placeholder="USD..." /></td>' +
+        '<td><input class="f-precio-ant" type="number" step="1000" value="' + (m.precio_anterior || '') + '" /></td>' +
+        '<td class="col-img"><input class="f-img" value="' + esc(m.img || 'img/placeholder.jpg') + '" /></td>' +
+        '<td><input class="f-orden" type="number" step="1" value="' + (m.orden || 0) + '" style="max-width:50px" /></td>' +
+        '<td style="text-align:center"><input class="f-disponible" type="checkbox" ' + (m.disponible !== false ? 'checked' : '') + ' /></td>' +
+        '<td style="text-align:center"><input class="f-destacada" type="checkbox" ' + (m.destacada ? 'checked' : '') + ' /></td>' +
+        '<td><input class="f-etiqueta" value="' + esc(m.etiqueta || '') + '" placeholder="Ej: Vendida" style="max-width:100px" /></td>' +
+        '<td>' + (id ? '<button class="btn btn-outline btn-xs" onclick="abrirImagenes(\'' + id + '\',\'' + esc(m.nombre) + '\')">📷 ' + (m._imgCount || 0) + '</button>' : '') + '</td>' +
+        '<td class="cell-actions">' +
+          '<button class="btn btn-success btn-xs" onclick="saveMoto(this)">💾</button>' +
+          (id ? '<button class="btn btn-danger btn-xs" onclick="deleteMoto(this)">🗑</button>' : '') +
+        '</td></tr>';
+    }
+
+    async function loadMotos() {
+      $('motosTbody').innerHTML = '<tr><td colspan="12" style="text-align:center;color:var(--color-muted);padding:30px">Cargando...</td></tr>';
+      var r = await sb.from('motos').select('*').order('orden').order('nombre');
+      if (r.error) { toast('Error: ' + r.error.message, 'error'); return; }
+      allMotos = r.data || [];
+
+      // contar imágenes por moto
+      var ids = allMotos.filter(function(m){return m.id}).map(function(m){return m.id});
+      if (ids.length) {
+        var imgR = await sb.from('moto_imagenes').select('moto_id').in('moto_id', ids);
+        if (!imgR.error && imgR.data) {
+          var counts = {};
+          imgR.data.forEach(function(x){ counts[x.moto_id] = (counts[x.moto_id] || 0) + 1; });
+          allMotos.forEach(function(m){ m._imgCount = counts[m.id] || 0; });
+        }
+      }
+
+      $('motosTbody').innerHTML = allMotos.map(renderMotoRow).join('');
+    }
+
+    function getRowData(row) {
+      return {
+        nombre: (row.querySelector('.f-nombre').value || '').trim(),
+        condicion: row.querySelector('.f-condicion').value,
+        precio: row.querySelector('.f-precio').value ? Number(row.querySelector('.f-precio').value) : null,
+        precio_texto: row.querySelector('.f-precio-texto').value.trim() || null,
+        precio_anterior: row.querySelector('.f-precio-ant').value ? Number(row.querySelector('.f-precio-ant').value) : null,
+        img: row.querySelector('.f-img').value.trim() || 'img/placeholder.jpg',
+        orden: Number(row.querySelector('.f-orden').value) || 0,
+        disponible: row.querySelector('.f-disponible').checked,
+        destacada: row.querySelector('.f-destacada').checked,
+        etiqueta: row.querySelector('.f-etiqueta').value.trim() || null,
+      };
+    }
+
+    window.saveMoto = async function (btn) {
+      var row = btn.closest('tr');
+      var data = getRowData(row);
+      var id = row.dataset.id;
+      if (!data.nombre) { toast('El nombre es obligatorio', 'error'); return; }
+      btn.textContent = '...';
+      var err;
+      if (id) { var r = await sb.from('motos').update(data).eq('id', id); err = r.error; }
+      else { var r = await sb.from('motos').insert(data).select(); err = r.error; if (!err && r.data && r.data[0]) row.dataset.id = r.data[0].id; }
+      btn.textContent = '\uD83D\uDCBE';
+      if (err) { toast('Error: ' + err.message, 'error'); return; }
+      toast('Guardado', 'success');
+    };
+
+    window.deleteMoto = async function (btn) {
+      if (!confirm('¿Eliminar esta moto?')) return;
+      var row = btn.closest('tr');
+      var id = row.dataset.id;
+      if (!id) { row.remove(); return; }
+      btn.textContent = '...';
+      var r = await sb.from('motos').delete().eq('id', id);
+      if (r.error) { toast('Error: ' + r.error.message, 'error'); btn.textContent = '\uD83D\uDDD1'; return; }
+      row.remove();
+      toast('Eliminada', 'success');
+    };
+
+    $('addMotoBtn').onclick = function () {
+      var tbody = $('motosTbody');
+      var tr = document.createElement('tr');
+      tr.dataset.id = '';
+      tr.innerHTML = renderMotoRow({ nombre: '', condicion: '0km', precio: null, precio_texto: '', img: 'img/placeholder.jpg', orden: allMotos.length + 1, disponible: true, destacada: false, etiqueta: '', _imgCount: 0 });
+      tbody.insertBefore(tr, tbody.firstChild);
+      tr.querySelector('.f-nombre').focus();
+    };
+
+    $('refreshMotosBtn').onclick = loadMotos;
+
+    /* IMÁGENES MODAL */
+    window.abrirImagenes = function (motoId, motoNombre) {
+      currentImgMotoId = motoId;
+      $('imgModalTitle').textContent = motoNombre;
+      $('imgModal').classList.add('is-open');
+      cargarImagenes(motoId);
+    };
+
+    $('imgModalClose').onclick = function () { $('imgModal').classList.remove('is-open'); };
+    $('imgModal').addEventListener('click', function (e) { if (e.target === $('imgModal')) $('imgModal').classList.remove('is-open'); });
+
+    async function cargarImagenes(motoId) {
+      $('imgGrid').innerHTML = '<p style="color:var(--color-muted);grid-column:1/-1">Cargando...</p>';
+      var r = await sb.from('moto_imagenes').select('*').eq('moto_id', motoId).order('orden');
+      if (r.error) { $('imgGrid').innerHTML = '<p style="color:#e63946">Error</p>'; return; }
+      var imgs = r.data || [];
+      if (!imgs.length) { $('imgGrid').innerHTML = '<p style="color:var(--color-muted);grid-column:1/-1">Sin imágenes adicionales. Subí una desde abajo.</p>'; return; }
+      $('imgGrid').innerHTML = imgs.map(function (img) {
+        return '<div class="img-item"><img src="' + esc(img.url) + '" loading="lazy" /><button class="img-del" onclick="eliminarImagen(\'' + img.id + '\',this)">✕</button></div>';
+      }).join('');
+    }
+
+    window.eliminarImagen = async function (imgId, btn) {
+      if (!confirm('¿Eliminar esta imagen?')) return;
+      var r = await sb.from('moto_imagenes').delete().eq('id', imgId);
+      if (r.error) { toast('Error: ' + r.error.message, 'error'); return; }
+      btn.closest('.img-item').remove();
+      toast('Imagen eliminada', 'success');
+    };
+
+    /* UPLOAD */
+    $('uploadArea').onclick = function () { $('fileInput').click(); };
+    $('fileInput').onchange = async function () {
+      var files = this.files;
+      if (!files.length || !currentImgMotoId) return;
+      toast('Subiendo ' + files.length + ' imagen(es)...', 'success');
+      for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        if (file.size > 5 * 1024 * 1024) { toast('Máx 5MB: ' + file.name, 'error'); continue; }
+        var ext = file.name.split('.').pop().toLowerCase();
+        var path = currentImgMotoId + '/' + Date.now() + '_' + i + '.' + ext;
+        var uploadR = await sb.storage.from('motos').upload(path, file, { upsert: false });
+        if (uploadR.error) { toast('Error subiendo ' + file.name + ': ' + uploadR.error.message, 'error'); continue; }
+        var urlR = sb.storage.from('motos').getPublicUrl(path);
+        var url = urlR.data.publicUrl;
+        var insR = await sb.from('moto_imagenes').insert({ moto_id: currentImgMotoId, url: url, orden: Date.now() });
+        if (insR.error) { toast('Error guardando ' + file.name, 'error'); continue; }
+      }
+      this.value = '';
+      cargarImagenes(currentImgMotoId);
+      loadMotos();
+      toast('Subida completa', 'success');
+    };
+
+    /* CONFIG */
+    var currentConfig = null;
+
+    function renderPlans(plans) {
+      $('plansContainer').innerHTML = (plans || []).map(function(p) {
+        return '<div class="plan-row">' +
+          '<label class="admin-field"><span>Cuotas</span><input class="p-cuotas" type="number" value="' + p.cuotas + '" /></label>' +
+          '<label class="admin-field"><span>Recargo %</span><input class="p-recargo" type="number" step="any" value="' + p.recargoTotalPct + '" /></label>' +
+          '<label class="admin-field"><span>Nombre</span><input class="p-nombre" value="' + esc(p.nombre) + '" /></label>' +
+          '<button onclick="this.closest(\'.plan-row\').remove()">Borrar</button></div>';
+      }).join('');
+    }
+
+    function readPlans() {
+      return Array.from($('plansContainer').querySelectorAll('.plan-row')).map(function(row) {
+        return { cuotas: Number(row.querySelector('.p-cuotas').value) || 0, recargoTotalPct: Number(row.querySelector('.p-recargo').value) || 0, nombre: row.querySelector('.p-nombre').value.trim() || (row.querySelector('.p-cuotas').value + ' cuotas') };
+      }).filter(function(p) { return p.cuotas > 0; });
+    }
+
+    function fillConfig(cfg) {
+      if (!cfg) return;
+      $('cfgMinPct').value = cfg.entregaMinimaPct || 0;
+      $('cfgDefaultPct').value = cfg.entregaInicialPct || 0;
+      $('cfgFeePct').value = cfg.gastoAdministrativoPct || 0;
+      $('cfgFixedFee').value = cfg.gastoFijo || 0;
+      $('cfgRounding').value = cfg.redondeo || 1;
+      $('cfgInitialPlan').value = cfg.planInicial || 12;
+      $('cfgDisclaimer').value = cfg.disclaimer || '';
+      renderPlans(cfg.planes || []);
+    }
+
+    function readConfig() {
+      return {
+        entregaMinimaPct: Number($('cfgMinPct').value) || 0, entregaInicialPct: Number($('cfgDefaultPct').value) || 0,
+        gastoAdministrativoPct: Number($('cfgFeePct').value) || 0, gastoFijo: Number($('cfgFixedFee').value) || 0,
+        redondeo: Number($('cfgRounding').value) || 1, planInicial: Number($('cfgInitialPlan').value) || 12,
+        disclaimer: $('cfgDisclaimer').value.trim(), planes: readPlans(),
+      };
+    }
+
+    async function loadConfig() {
+      var r = await sb.from('configuracion').select('*').eq('clave', 'financiera').single();
+      if (r.error) { toast('Error config: ' + r.error.message, 'error'); return; }
+      currentConfig = r.data;
+      fillConfig(r.data.valor);
+    }
+
+    $('saveConfigBtn').onclick = async function () {
+      var valor = readConfig();
+      $('saveConfigBtn').textContent = 'Guardando...';
+      if (currentConfig) { var r = await sb.from('configuracion').update({ valor: valor }).eq('id', currentConfig.id); if (r.error) { toast('Error: ' + r.error.message, 'error'); $('saveConfigBtn').textContent = 'Guardar configuración'; return; } }
+      else { var r = await sb.from('configuracion').insert({ clave: 'financiera', valor: valor }); if (r.error) { toast('Error: ' + r.error.message, 'error'); $('saveConfigBtn').textContent = 'Guardar configuración'; return; } }
+      currentConfig = { id: currentConfig ? currentConfig.id : null, valor: valor };
+      toast('Configuración guardada', 'success');
+      $('saveConfigBtn').textContent = 'Guardar configuración';
+    };
+
+    $('addPlanBtn').onclick = function () {
+      var div = document.createElement('div'); div.className = 'plan-row';
+      div.innerHTML = '<label class="admin-field"><span>Cuotas</span><input class="p-cuotas" type="number" value="36" /></label><label class="admin-field"><span>Recargo %</span><input class="p-recargo" type="number" step="any" value="130" /></label><label class="admin-field"><span>Nombre</span><input class="p-nombre" value="36 cuotas" /></label><button onclick="this.closest(\'.plan-row\').remove()">Borrar</button>';
+      $('plansContainer').appendChild(div);
+    };
+
+    /* PROMOS */
+    var promoActiva = null;
+
+    function actPromoPreview() {
+      var txt = ($('promoEmoji').value || '') + ' ' + $('promoTexto').value;
+      $('promoPreview').textContent = txt || 'Vista previa del banner';
+      $('promoPreview').style.background = $('promoColor').value || '#F2E600';
+    }
+
+    $('promoTexto').oninput = actPromoPreview;
+    $('promoEmoji').oninput = actPromoPreview;
+    $('promoColor').oninput = actPromoPreview;
+
+    async function loadPromosAdmin() {
+      var r = await sb.from('promociones').select('*').eq('activo', true).limit(1);
+      if (r.error || !r.data || !r.data.length) return;
+      promoActiva = r.data[0];
+      $('promoTexto').value = promoActiva.texto || '';
+      $('promoEmoji').value = promoActiva.emoji || '';
+      $('promoColor').value = promoActiva.color || '#F2E600';
+      actPromoPreview();
+    }
+
+    $('savePromoBtn').onclick = async function () {
+      var data = { texto: $('promoTexto').value.trim(), emoji: $('promoEmoji').value.trim(), color: $('promoColor').value || '#F2E600', activo: true };
+      if (!data.texto) { toast('El texto es obligatorio', 'error'); return; }
+      $('savePromoBtn').textContent = 'Guardando...';
+      if (promoActiva) { var r = await sb.from('promociones').update(data).eq('id', promoActiva.id); if (r.error) { toast('Error: ' + r.error.message, 'error'); $('savePromoBtn').textContent = 'Guardar banner'; return; } }
+      else { var r = await sb.from('promociones').insert(data).select(); if (r.error) { toast('Error: ' + r.error.message, 'error'); $('savePromoBtn').textContent = 'Guardar banner'; return; } if (r.data) promoActiva = r.data[0]; }
+      toast('Banner guardado', 'success');
+      $('savePromoBtn').textContent = 'Guardar banner';
+    };
+
+    $('disablePromoBtn').onclick = async function () {
+      if (!promoActiva) return;
+      if (!confirm('¿Desactivar el banner?')) return;
+      var r = await sb.from('promociones').update({ activo: false }).eq('id', promoActiva.id);
+      if (r.error) { toast('Error: ' + r.error.message, 'error'); return; }
+      promoActiva = null;
+      $('promoTexto').value = ''; $('promoEmoji').value = ''; $('promoColor').value = '#F2E600';
+      actPromoPreview();
+      toast('Banner desactivado', 'success');
+    };
+
+    /* EVENTOS */
+    async function loadEventos() {
+      $('eventLog').innerHTML = '<p style="color:var(--color-muted)">Cargando...</p>';
+      var r = await sb.from('eventos_whatsapp').select('*').order('created_at', { ascending: false }).limit(50);
+      if (r.error) { $('eventLog').innerHTML = '<p style="color:#e63946">Error</p>'; return; }
+      var eventos = r.data || [];
+
+      var r2 = await sb.from('cotizaciones').select('*').order('created_at', { ascending: false }).limit(50);
+      var cotizaciones = (!r2.error && r2.data) ? r2.data : [];
+      var todos = [];
+
+      eventos.forEach(function(e) {
+        todos.push({ tipo: e.tipo, moto_nombre: e.moto_nombre, mensaje: e.mensaje, created_at: e.created_at, badge: 'eventos' });
+      });
+      cotizaciones.forEach(function(c) {
+        todos.push({
+          tipo: 'cotizacion',
+          moto_nombre: c.moto_nombre,
+          mensaje: c.moto_nombre + ' — $' + (c.precio || 0).toLocaleString('es-AR') + ' · ' + c.plan_cuotas + ' cuotas de $' + (c.cuota_estimada || 0).toLocaleString('es-AR'),
+          created_at: c.created_at,
+          badge: 'cotizaciones'
+        });
+      });
+
+      todos.sort(function(a, b) { return new Date(b.created_at) - new Date(a.created_at); });
+
+      $('statTotal').textContent = todos.length;
+      $('statConsultas').textContent = eventos.length;
+      $('statCotizaciones').textContent = cotizaciones.length;
+
+      if (!todos.length) { $('eventLog').innerHTML = '<p style="color:var(--color-muted);padding:20px 0">Sin eventos aún.</p>'; return; }
+
+      $('eventLog').innerHTML = todos.map(function(e) {
+        var fecha = e.created_at ? new Date(e.created_at).toLocaleString('es-AR') : '';
+        var badgeClass = e.badge === 'cotizaciones' ? 'ev-badge--cotizacion' : (e.tipo === 'consulta_moto' ? 'ev-badge--consulta_moto' : 'ev-badge--consulta_general');
+        var label = e.tipo === 'cotizacion' ? 'Cotización' : (e.tipo === 'consulta_moto' ? 'Consulta' : 'General');
+        return '<div class="event-row"><span class="ev-time">' + fecha + '</span><span class="ev-badge ' + badgeClass + '">' + label + '</span><span style="flex:1">' + esc(e.mensaje || e.moto_nombre || '') + '</span></div>';
+      }).join('');
+    }
+
+    $('refreshEventosBtn').onclick = loadEventos;
+
+    /* LEADS */
+    async function loadLeads() {
+      $('leadsTbody').innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--color-muted);padding:30px">Cargando...</td></tr>';
+      var r = await sb.from('leads').select('*').order('created_at', { ascending: false }).limit(100);
+      if (r.error) { toast('Error: ' + r.error.message, 'error'); return; }
+      var leads = r.data || [];
+      if (!leads.length) { $('leadsTbody').innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--color-muted);padding:30px">Sin leads aún.</td></tr>'; return; }
+      $('leadsTbody').innerHTML = leads.map(function(l) {
+        var fecha = l.created_at ? new Date(l.created_at).toLocaleString('es-AR') : '';
+        return '<tr>' +
+          '<td style="white-space:nowrap">' + esc(fecha) + '</td>' +
+          '<td><strong>' + esc(l.nombre) + '</strong></td>' +
+          '<td>' + esc(l.telefono || '') + '</td>' +
+          '<td>' + esc(l.moto_interes || '') + '</td>' +
+          '<td style="max-width:260px;overflow:hidden;text-overflow:ellipsis">' + esc(l.mensaje || '') + '</td>' +
+          '</tr>';
+      }).join('');
+    }
+
+    $('refreshLeadsBtn').onclick = loadLeads;
+
+    /* Añadir loadLeads al login si está logueado */
+    var origCheckSession = checkSession;
+    checkSession = function() {
+      var s = sb ? sb.auth.getSession() : null;
+      if (s && s.data && s.data.session) {
+        currentUser = s.data.session.user;
+        $('adminEmail').textContent = currentUser.email;
+        showView('admin');
+        loadMotos(); loadConfig(); loadPromosAdmin(); loadLeads(); loadEventos();
+      }
+    };
+
+    /* INIT */
+    if (!sb) {
+      $('loginView').innerHTML = '<div class="login-card"><h1>El 42 <span class="hl">Motos</span></h1><p>Supabase no configurado.</p><div class="login-note">Creá <strong>js/supabase-config.js</strong> desde <strong>js/supabase-config.example.js</strong>.</div><div class="admin-actions-bar" style="margin-top:16px"><a href="index.html" class="btn btn--primary">Volver al sitio</a></div></div>';
+    } else {
+      setTimeout(checkSession, 200);
+    }
+  </script>
+
+</body>
+</html>
