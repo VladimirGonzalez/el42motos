@@ -1177,18 +1177,14 @@ body.nav-open { overflow: hidden; }
 
   .cs-result-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 8px;
     width: 100%;
-  }
-
-  .cs-result-grid > :first-child {
-    grid-column: 1 / -1;
   }
 
   .cs-result-grid > div {
     min-width: 0;
-    padding: 14px 12px;
+    padding: 14px 16px;
   }
 
   .cs-result__label {
